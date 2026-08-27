@@ -1,0 +1,249 @@
+PDVoice Buddy — Field Test Feedback
+Tablet version, 0.1
+
+Please fill this in after using it for at least three days.
+There are no wrong answers. Unflattering answers are the most useful ones.
+
+Name (optional): ______________________  Dates used: __________ to __________
+
+
+-----------------------------------------------------------------------------
+PART 1 — DID YOU KEEP USING IT?
+-----------------------------------------------------------------------------
+The single most important question. If it got closed, that tells us more than
+anything else.
+
+1. How many days did you actually open it?
+   [ ] 1     [ ] 2     [ ] 3     [ ] 4-5     [ ] 6-7     [ ] every day
+
+2. On the days you used it, roughly how long was it running?
+   [ ] Under 30 minutes    [ ] 1-2 hours    [ ] Half the day
+   [ ] Most of the day     [ ] All day
+
+3. Did you ever close or pause it on purpose?
+   [ ] No     [ ] Yes
+
+   If yes, what made you stop it? _______________________________________
+
+   ______________________________________________________________________
+
+4. Did you ever forget to open it?
+   [ ] No     [ ] Once or twice     [ ] Most days
+
+5. Be honest — did you keep using it because it helped, or because you were
+   asked to test it?
+   [ ] It helped    [ ] Mostly because I was asked    [ ] Both
+
+
+-----------------------------------------------------------------------------
+PART 2 — DID YOU NOTICE THE DOT?
+-----------------------------------------------------------------------------
+The dot is meant to work in the corner of your eye, without you looking at
+it. We need to know whether that actually happened.
+
+6. While you were talking, did you notice the dot change?
+   [ ] Yes, without looking for it
+   [ ] Only when I deliberately looked at it
+   [ ] Not really
+   [ ] Never noticed it
+
+7. Did you ever catch yourself speaking up because of it?
+   [ ] Often     [ ] A few times     [ ] Once or twice     [ ] Never
+
+8. Did you find yourself staring at it instead of at the person you were
+   talking to?
+   [ ] Never     [ ] Sometimes     [ ] Often
+
+9. Was it distracting?
+   [ ] Not at all    [ ] A little    [ ] Quite    [ ] Too distracting to use
+
+10. Did the way it grows and glows as you get louder help, or was it just
+    movement?
+    [ ] Helped — I could see myself getting there
+    [ ] Didn't notice it
+    [ ] Just distracting movement
+
+
+-----------------------------------------------------------------------------
+PART 3 — DID IT SEEM RIGHT?
+-----------------------------------------------------------------------------
+
+11. When you spoke at what felt like a normal volume, was the dot lit?
+    [ ] Almost always    [ ] Usually    [ ] About half the time
+    [ ] Rarely           [ ] Almost never
+
+    (If rarely or never, the setting was too high — that's our mistake to
+    fix, not yours.)
+
+12. Did the dot ever light up when YOU weren't the one talking?
+    [ ] No
+    [ ] Yes — when someone else in the room spoke
+    [ ] Yes — from the television, radio, or music
+    [ ] Yes — from other noise (please say what): ________________________
+
+13. Did the dot ever stay dark when you were sure you were being loud?
+    [ ] No     [ ] Occasionally     [ ] Often
+
+14. Did it flicker on and off between words, or stay steady while you spoke?
+    [ ] Steady     [ ] Flickered a bit     [ ] Flickered badly
+
+15. Did the light feel encouraging, or like being nagged?
+    [ ] Encouraging    [ ] Neutral    [ ] Like being nagged
+
+
+-----------------------------------------------------------------------------
+PART 4 — DIFFERENT ROOMS
+-----------------------------------------------------------------------------
+This version is supposed to adjust itself to how noisy the room is. This part
+tells us whether it actually does.
+
+16. Where did you use it? (tick all)
+    [ ] Quiet room at home        [ ] Kitchen with appliances running
+    [ ] With visitors             [ ] Restaurant or café
+    [ ] In the car                [ ] Somewhere else: ____________________
+
+17. Did it work as well in the noisy places as the quiet ones?
+    [ ] Just as well
+    [ ] Worse in noisy places
+    [ ] Worse in quiet places
+    [ ] Didn't try it anywhere noisy
+
+18. If you used it in a restaurant or café — what happened?
+
+    ______________________________________________________________________
+
+    ______________________________________________________________________
+
+19. Did you have to change the setting when you changed rooms?
+    [ ] No, it coped     [ ] Yes, once or twice     [ ] Yes, constantly
+
+
+-----------------------------------------------------------------------------
+PART 5 — THE SETTINGS
+-----------------------------------------------------------------------------
+
+20. Which "how loud you need to be" setting did you end up on?
+    [ ] Gentle   [ ] Easy   [ ] Normal   [ ] Firm   [ ] Strong
+    [ ] Don't know / never changed it
+
+21. Did you change it yourself, or did someone do it for you?
+    [ ] Myself     [ ] Someone helped     [ ] Never changed
+
+22. Were the five choices clear, or would a plain number have been easier?
+    [ ] Clear    [ ] Confusing    [ ] I'd prefer a number
+
+23. Which size did you use most?
+    [ ] Full screen    [ ] Small floating pill    [ ] Both about equally
+
+24. If you used the floating pill — was it useful, or in the way?
+    [ ] Useful    [ ] In the way    [ ] Didn't try it
+
+25. Did you change the colour?
+    [ ] No    [ ] Yes, to: ____________________
+
+26. Was anything in settings confusing or hard to press?
+
+    ______________________________________________________________________
+
+
+-----------------------------------------------------------------------------
+PART 6 — THE CAR
+-----------------------------------------------------------------------------
+Only if it came up. Skip otherwise.
+
+27. Did you use it in a car?
+    [ ] No, skip to Part 7
+    [ ] Yes, as a passenger
+    [ ] Yes, while driving
+
+28. If driving — did you remember to set "I'm driving" each time?
+    [ ] Every time     [ ] Sometimes forgot     [ ] Never did
+
+29. Was the buzz noticeable enough with the screen dark?
+    [ ] Yes    [ ] Too faint    [ ] Too much    [ ] Didn't try it
+
+30. Was having to set it manually every time a nuisance?
+    [ ] Fine    [ ] A nuisance    [ ] I'd rather it just didn't work in cars
+
+
+-----------------------------------------------------------------------------
+PART 7 — DID IT MAKE A DIFFERENCE?
+-----------------------------------------------------------------------------
+
+31. Did anyone comment that you were easier to hear?
+    [ ] Yes     [ ] No     [ ] Not sure
+
+32. Were you asked to repeat yourself less often?
+    [ ] Yes, noticeably    [ ] Maybe slightly    [ ] No change    [ ] Not sure
+
+33. Did using it make you more aware of your volume even when it was off?
+    [ ] Yes     [ ] A little     [ ] No
+
+34. Was it tiring to use?
+    [ ] Not at all    [ ] A little    [ ] Yes, tiring
+
+35. Would you keep using it if we changed nothing?
+    [ ] Yes     [ ] Only with changes     [ ] No
+
+36. Would you recommend trying it to someone else with Parkinson's?
+    [ ] Yes     [ ] Maybe     [ ] No
+
+
+-----------------------------------------------------------------------------
+PART 8 — IN YOUR OWN WORDS
+-----------------------------------------------------------------------------
+These matter more than all the boxes above. Please write something, even
+briefly.
+
+37. What was the single most annoying thing about it?
+
+    ______________________________________________________________________
+
+    ______________________________________________________________________
+
+38. What actually worked?
+
+    ______________________________________________________________________
+
+    ______________________________________________________________________
+
+39. If you could change one thing, what would it be?
+
+    ______________________________________________________________________
+
+    ______________________________________________________________________
+
+40. Where would you want this that a tablet doesn't reach? (Walking? On your
+    wrist? Somewhere else?)
+
+    ______________________________________________________________________
+
+41. Anything else — including anything you didn't like but felt awkward
+    saying:
+
+    ______________________________________________________________________
+
+    ______________________________________________________________________
+
+
+-----------------------------------------------------------------------------
+FOR A CARE PARTNER OR FAMILY MEMBER, IF ONE WAS AROUND
+-----------------------------------------------------------------------------
+
+42. Did you notice a difference in how easily you could hear them?
+    [ ] Yes, clearly    [ ] Slightly    [ ] No    [ ] Not sure
+
+43. Did the app change the feel of your conversations, for better or worse?
+
+    ______________________________________________________________________
+
+44. Did you find yourself reminding them to speak up more, or less?
+    [ ] Less     [ ] The same     [ ] More
+
+45. Did the dot ever light up for YOUR voice rather than theirs?
+    [ ] No     [ ] Sometimes     [ ] Often     [ ] Didn't notice
+
+
+Thank you. Negative feedback is genuinely more useful than positive here —
+it's a first prototype, and the point of this test is to find out what's
+wrong with it.

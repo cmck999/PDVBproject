@@ -1,0 +1,304 @@
+PDVOICE BUDDY — SPANISH PROOFREADING SHEET
+Latin American Spanish (neutral), usted throughout
+
+For a fluent proofreader. Mark up anything that reads badly and send it back —
+you do not need to know anything about the app or about code.
+
+HOW TO MARK IT UP
+    Write your correction next to any line that's wrong, or just cross it out
+    and write what you'd say instead. Free-text is fine. Don't worry about
+    matching length exactly, but shorter is better for the items marked
+    [TIGHT] — those are drawn in small spaces on screen.
+
+
+DECISIONS ALREADY MADE — tell us if you disagree
+=============================================================================
+
+USTED, NOT TÚ
+    The people using this are mostly older adults, and the app is a health
+    tool. "Toca para cambiar" felt too familiar, so everything uses usted:
+    "Toque para cambiar." Say so if this reads as stiff or cold to you — it's
+    a judgement call and we'd rather be corrected now.
+
+"AUTO", NOT "CARRO" OR "COCHE"
+    Neutral across most of Latin America. Change it if your region would
+    stumble on it.
+
+"APLICACIÓN", NOT "APP"
+    Used in the one long sentence where it appears, on the grounds that older
+    users may not know "app". Shorten it if you think that's over-cautious.
+
+
+PART 1 — THE WORDS UNDER THE DOT  [TIGHT]
+=============================================================================
+These are the most important six lines in the whole app. They're read
+mid-conversation, out of the corner of the eye, at a glance. They must be
+short, and instantly clear.
+
+    English                     Spanish used            Your correction
+    -------------------------------------------------------------------------
+    Paused                      En pausa                ____________________
+    Starting…                   Iniciando…              ____________________
+    Listening to the room       Escuchando la sala      ____________________
+    Listening…                  Escuchando…             ____________________
+    Heard                       Se oye                  ____________________
+    Louder                      Más fuerte              ____________________
+    No microphone               Sin micrófono           ____________________
+
+    THE TWO WE'RE LEAST SURE OF:
+
+    "Heard" — this is the good state, the reward. It should feel like "you're
+    coming through," not like a passive technical report. We used "Se oye."
+    Other candidates we rejected: "Te oyen" (uses tú), "Se le oye" (correct
+    but clumsy), "Claro." If one of those is better, say so.
+
+    "Louder" — this is a nudge, not a scolding. "Más fuerte" is literal and
+    short. Is there something warmer that still fits in the same space?
+
+    "Escuchando la sala" — "sala" may be wrong here. It means the app is
+    measuring the background noise of wherever you are, which might be a
+    kitchen, a restaurant, or a car. Is there a better word than "sala"?
+
+
+PART 2 — HOW LOUD YOU NEED TO BE
+=============================================================================
+Five steps from easiest to hardest. The NAMES appear as buttons [TIGHT]; the
+notes appear underneath in small text.
+
+    Section heading:
+    How loud you need to be   →   Qué tan fuerte hablar      ______________
+
+    Explanation:
+    "Pick something you can already manage. Raise it later."
+    →  "Elija algo que ya pueda lograr. Súbalo más adelante."
+                                                              ______________
+
+    The notes now carry a dB number, because the app targets normal
+    conversational volume (60-70 dB) and not merely "louder than the room".
+
+    Name [TIGHT]      Note                                Your correction
+    ---------------------------------------------------------------------------
+    Gentle            below conversational — a starting point
+    Suave             por debajo de lo conversacional — para empezar
+                                                          ____________________
+    ---------------------------------------------------------------------------
+    Easy              a relaxed voice, about 60 dB
+    Fácil             una voz relajada, unos 60 dB        ____________________
+    ---------------------------------------------------------------------------
+    Normal            conversational, about 63 dB
+    Normal            conversacional, unos 63 dB          ____________________
+    ---------------------------------------------------------------------------
+    Firm              projecting, about 66 dB
+    Firme             proyectando, unos 66 dB             ____________________
+    ---------------------------------------------------------------------------
+    Strong            strong projection, about 69 dB
+    Fuerte            proyección fuerte, unos 69 dB       ____________________
+
+    Explanation under the five:
+    "Normal conversation is 60-70 dB. The dot needs your voice above the room
+     AND above this level, so a quiet room no longer lets a whisper through."
+    →  "Una conversación normal está entre 60 y 70 dB. El punto necesita que
+        su voz esté por encima de la sala Y por encima de este nivel, para que
+        una sala silenciosa ya no permita un susurro."
+                                                          ____________________
+
+    CHECK: "dB" is left as "dB" — the international symbol. Confirm that's
+    what a Spanish speaker would expect to see, rather than "decibeles".
+
+    IMPORTANT: these five names must feel ENCOURAGING, not like commands. In
+    English "Strong" is a description of a setting, not an order to be strong.
+    If "Fuerte" reads as an instruction — or worse, as a judgement about the
+    person — please suggest something else. This matters more than literal
+    accuracy.
+
+    Also: "encender" (to light up) is used for the dot lighting up. If that
+    metaphor doesn't work in Spanish, tell us — we can change the English too.
+
+
+PART 3 — IN THE CAR
+=============================================================================
+Safety text. Accuracy matters more than elegance here.
+
+    Heading:
+    In the car   →   En el auto                                ______________
+
+    Explanation:
+    "A phone cannot tell a driver from a passenger, so it has to ask. This
+    resets every time the app starts."
+    →  "El teléfono no puede distinguir si usted conduce o va de pasajero,
+        así que tiene que preguntar. Esto se reinicia cada vez que abre la
+        aplicación."
+                                                              ______________
+
+    The three choices — these are the USER speaking about themselves, so they
+    are in the first person:
+
+    Not in a car        →  No voy en auto                      ______________
+    I'm a passenger     →  Voy de pasajero                     ______________
+    I'm driving         →  Voy conduciendo                     ______________
+
+    Their explanations:
+
+    "The dot stays on — nobody is steering."
+    →  "El punto sigue encendido: nadie va al volante."        ______________
+
+    "Screen stays dark. A short buzz when your voice drops."
+    →  "La pantalla queda oscura. Una vibración corta cuando su voz baja."
+                                                              ______________
+
+    On the dark screen while driving:
+    Driving — buzz only  →  Conduciendo — solo vibración       ______________
+    tap to change        →  toque para cambiar                 ______________
+
+    CHECK CAREFULLY: "Voy conduciendo" vs "Estoy conduciendo" vs "Voy
+    manejando." "Manejar" is more common than "conducir" in much of Latin
+    America — should we switch? This is the one place where being
+    misunderstood has real consequences.
+
+
+PART 4 — COLOUR AND SIZE
+=============================================================================
+
+    Colour   →  Color                                          ______________
+    Mint     →  Menta                                          ______________
+    Amber    →  Ámbar                                          ______________
+    Sky      →  Cielo                                          ______________
+    White    →  Blanco                                         ______________
+
+    Size     →  Tamaño                                         ______________
+
+    Full screen  →  Pantalla completa                          ______________
+    "A large dot in the middle. Easiest to see across a room."
+    →  "Un punto grande en el centro. El más fácil de ver desde lejos."
+                                                              ______________
+
+    Small pill   →  Barra pequeña                              ______________
+    "Floats on top of whatever you are using. Drag it anywhere."
+    →  "Flota sobre lo que esté usando. Arrástrela donde quiera."
+                                                              ______________
+    "Floats over other apps — tap to allow that first."
+    →  "Flota sobre otras aplicaciones: toque para permitirlo primero."
+                                                              ______________
+
+    NOTE ON "pill": in English this describes the SHAPE — a small rounded bar.
+    We used "barra pequeña" (small bar) because "píldora" would suggest
+    medication, which is badly wrong for an app aimed at people taking daily
+    medication. If there's a better word for a small floating bar, tell us.
+
+
+PART 4b — LANGUAGE
+=============================================================================
+There is now a Language setting, because a Spanish speaker may be using a
+device that a family member set up in English.
+
+    Heading:
+    LANGUAGE   →   IDIOMA                                     ______________
+
+    The choices. "English" and "Español" are deliberately NOT translated —
+    they appear in their own language so they can be recognised whatever the
+    app is currently showing. Only "Automatic" translates:
+
+    Automatic          →  Automático                          ______________
+    "Follow the device" →  "Seguir el dispositivo"            ______________
+
+
+PART 4c — MICROPHONE CALIBRATION
+=============================================================================
+An advanced setting, aimed at a therapist with a real sound level meter rather
+than at the patient. It should read as "you can safely ignore this".
+
+    Heading:
+    MICROPHONE CALIBRATION  →  CALIBRACIÓN DEL MICRÓFONO   ______________
+
+    "Only worth touching if the dot seems far too easy or far too hard
+     everywhere. Speak normally at arm's length and compare with a sound level
+     meter app."
+    →  "Solo vale la pena cambiarla si el punto parece demasiado fácil o
+        demasiado difícil en todas partes. Hable normalmente a un brazo de
+        distancia y compare con una aplicación de sonómetro."
+                                                          ______________
+
+    Now: about 63 dB   →  Ahora: unos 63 dB                ______________
+    Now: quiet         →  Ahora: silencio                  ______________
+    Bar: 63 dB         →  Nivel: 63 dB                     ______________
+    Reset              →  Restablecer                      ______________
+
+    CHECK: "sonómetro" for a sound level meter — is that the word people
+    actually use, or would "medidor de decibeles" be clearer?
+
+    CHECK: "a un brazo de distancia" for "at arm's length". Natural?
+
+
+PART 5 — BUTTONS, MENUS AND THE REST
+=============================================================================
+
+    Settings          →  Ajustes                               ______________
+    Done              →  Listo                                 ______________
+    Quit              →  Salir                                 ______________
+    Show              →  Mostrar                               ______________
+    Hide              →  Ocultar                               ______________
+    Start listening   →  Empezar a escuchar                    ______________
+    Pause listening   →  Pausar la escucha                     ______________
+    Open at login     →  Abrir al iniciar sesión               ______________
+    Quit PDVoice Buddy → Salir de PDVoice Buddy                ______________
+
+    "Microphone not allowed"
+    →  "Micrófono no permitido"                                ______________
+    "Open PDVoice Buddy once to allow it"
+    →  "Abra PDVoice Buddy una vez para permitirlo"            ______________
+
+    The notice in the top bar of the phone while it's running:
+    "Listening — nothing is recorded"
+    →  "Escuchando — no se graba nada"                         ______________
+    (This one matters. It's the reassurance that the app isn't recording.
+    It must be unmistakable.)
+
+    Notification category name:
+    Voice cue  →  Señal de voz                                 ______________
+
+    COMPUTER VERSION ONLY:
+
+    "Hide — click the tray icon to bring it back"
+    →  "Ocultar — haga clic en el icono junto al reloj para volver"
+                                                              ______________
+    "Click anywhere for settings   ·   Esc to hide"
+    →  "Haga clic en cualquier lugar para los ajustes   ·   Esc para ocultar"
+                                                              ______________
+    "PDVoice Buddy is still listening"
+    →  "PDVoice Buddy sigue escuchando"                        ______________
+    "Click this icon to bring it back. Right-click it for Quit."
+    →  "Haga clic en este icono para volver. Clic derecho para salir."
+                                                              ______________
+    ". If the dot is dark most of the time, go down a step."
+    →  ". Si el punto está apagado la mayor parte del tiempo, baje un paso."
+                                                              ______________
+
+
+ANYTHING ELSE
+=============================================================================
+
+Is there anything here that would read as condescending, clinical, or
+discouraging to someone with Parkinson's? That's the failure we're most
+worried about and least able to judge ourselves.
+
+    ________________________________________________________________________
+
+    ________________________________________________________________________
+
+    ________________________________________________________________________
+
+
+Thank you. Send this back marked up in any form — a photo of a printout is
+fine.
+
+
+-----------------------------------------------------------------------------
+NOT TRANSLATED YET
+-----------------------------------------------------------------------------
+The app itself is done. These documents are still English only, and are a much
+bigger job — worth doing only if Spanish-speaking testers actually materialise:
+
+    HOW TO USE - PDVoice Buddy (All Versions).txt   (~2,000 words)
+    FEEDBACK SURVEY                                 (~1,500 words)
+    INSTALL PARAGRAPH - Android / Windows
+    WEBSITE COPY

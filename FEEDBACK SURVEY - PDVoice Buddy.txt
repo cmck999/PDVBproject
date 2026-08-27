@@ -1,0 +1,213 @@
+PDVoice Buddy — Field Test Feedback
+Version 0.1
+
+Please fill this in after using the app for at least three days.
+There are no wrong answers. Unflattering answers are the most useful ones.
+
+Name (optional): ______________________  Dates used: __________ to __________
+
+
+-----------------------------------------------------------------------------
+PART 1 — DID YOU KEEP USING IT?
+-----------------------------------------------------------------------------
+The single most important question. If it got closed, that tells us more than
+anything else.
+
+1. How many days did you actually open it?
+   [ ] 1     [ ] 2     [ ] 3     [ ] 4-5     [ ] 6-7     [ ] every day
+
+2. On the days you used it, roughly how long was it running?
+   [ ] Under 30 minutes    [ ] 1-2 hours    [ ] Half the day
+   [ ] Most of the day     [ ] All day
+
+3. Did you ever close it or hide it on purpose?
+   [ ] No     [ ] Yes
+
+   If yes, what made you close it? ______________________________________
+
+   ______________________________________________________________________
+
+4. Did you ever forget to open it?
+   [ ] No     [ ] Once or twice     [ ] Most days
+
+5. Be honest — did you keep using it because it helped, or because you were
+   asked to test it?
+   [ ] It helped    [ ] Mostly because I was asked    [ ] Both
+
+
+-----------------------------------------------------------------------------
+PART 2 — DID YOU NOTICE THE RING?
+-----------------------------------------------------------------------------
+The ring is meant to work in the corner of your eye, without you looking at
+it. We need to know whether that actually happened.
+
+6. While you were talking, did you notice the ring change?
+   [ ] Yes, without looking for it
+   [ ] Only when I deliberately looked at it
+   [ ] Not really
+   [ ] Never noticed it
+
+7. Did you ever catch yourself speaking up because of it?
+   [ ] Often     [ ] A few times     [ ] Once or twice     [ ] Never
+
+8. Did you find yourself staring at it instead of at the person you were
+   talking to?
+   [ ] Never     [ ] Sometimes     [ ] Often
+
+9. Was it distracting?
+   [ ] Not at all    [ ] A little    [ ] Quite    [ ] Too distracting to use
+
+
+-----------------------------------------------------------------------------
+PART 3 — DID IT SEEM RIGHT?
+-----------------------------------------------------------------------------
+
+10. When you spoke at what felt like a normal volume, was the ring lit?
+    [ ] Almost always    [ ] Usually    [ ] About half the time
+    [ ] Rarely           [ ] Almost never
+
+11. Did the ring ever light up when YOU weren't the one talking?
+    [ ] No
+    [ ] Yes — when someone else in the room spoke
+    [ ] Yes — from the television, radio, or music
+    [ ] Yes — from other noise (please say what): ________________________
+
+12. Did the ring ever stay dark when you were sure you were being loud?
+    [ ] No     [ ] Occasionally     [ ] Often
+
+13. Did the light feel encouraging, or like being nagged?
+    [ ] Encouraging    [ ] Neutral    [ ] Like being nagged
+
+14. What percentage did it usually show at the end of a day?
+    Roughly ________%
+
+    (If it was under about 40%, the target was probably set too high — worth
+    telling us, because that's our problem to fix, not yours.)
+
+
+-----------------------------------------------------------------------------
+PART 4 — SETTING IT UP
+-----------------------------------------------------------------------------
+
+15. Did you install it yourself, or did someone do it for you?
+    [ ] Myself     [ ] Someone helped     [ ] Someone did it entirely
+
+16. Did you do the "Measure the room" step?
+    [ ] Yes, on the first day
+    [ ] Yes, later on
+    [ ] I tried but couldn't find it
+    [ ] No
+    [ ] I don't know what this is
+
+17. Did anything about getting started confuse you?
+
+    ______________________________________________________________________
+
+    ______________________________________________________________________
+
+18. Was the ✕ / tray icon behaviour clear — that hiding it keeps it running?
+    [ ] Clear     [ ] Confusing     [ ] I never used it
+
+19. Did you read the How To Use guide?
+    [ ] Read it all    [ ] Skimmed it    [ ] Didn't read it
+    [ ] Didn't know there was one
+
+
+-----------------------------------------------------------------------------
+PART 5 — HOW IT LOOKS
+-----------------------------------------------------------------------------
+
+20. The size of the pill was:
+    [ ] Too small    [ ] About right    [ ] Too big    [ ] Much too big
+
+21. The ring's brightness was:
+    [ ] Too dim to notice    [ ] About right    [ ] Too bright
+
+22. The green colour was:
+    [ ] Good    [ ] Would prefer another colour: __________________
+
+23. Where it sat on screen (bottom-right) was:
+    [ ] Fine    [ ] In the way    [ ] I moved it to: __________________
+
+24. Did the words ("Heard" / "Louder") help?
+    [ ] Yes    [ ] Didn't notice them    [ ] I'd rather have just the ring
+
+
+-----------------------------------------------------------------------------
+PART 6 — DID IT MAKE A DIFFERENCE?
+-----------------------------------------------------------------------------
+
+25. Did anyone comment that you were easier to hear?
+    [ ] Yes     [ ] No     [ ] Not sure
+
+26. Did you have fewer moments of being asked to repeat yourself?
+    [ ] Yes, noticeably    [ ] Maybe slightly    [ ] No change    [ ] Not sure
+
+27. Did using it make you more aware of your volume even when it was closed?
+    [ ] Yes     [ ] A little     [ ] No
+
+28. Was it tiring to use?
+    [ ] Not at all    [ ] A little    [ ] Yes, tiring
+
+29. Would you keep using it if we changed nothing?
+    [ ] Yes     [ ] Only with changes     [ ] No
+
+30. Would you recommend trying it to someone else with Parkinson's?
+    [ ] Yes     [ ] Maybe     [ ] No
+
+
+-----------------------------------------------------------------------------
+PART 7 — IN YOUR OWN WORDS
+-----------------------------------------------------------------------------
+These matter more than all the boxes above. Please write something, even
+briefly.
+
+31. What was the single most annoying thing about it?
+
+    ______________________________________________________________________
+
+    ______________________________________________________________________
+
+32. What, if anything, actually worked?
+
+    ______________________________________________________________________
+
+    ______________________________________________________________________
+
+33. If you could change one thing, what would it be?
+
+    ______________________________________________________________________
+
+    ______________________________________________________________________
+
+34. Where would you want this instead of on a computer screen? (At meals? In
+    the car? On your wrist? Somewhere else?)
+
+    ______________________________________________________________________
+
+35. Anything else — including anything you didn't like but felt awkward
+    saying:
+
+    ______________________________________________________________________
+
+    ______________________________________________________________________
+
+
+-----------------------------------------------------------------------------
+FOR A CARE PARTNER OR FAMILY MEMBER, IF ONE WAS AROUND
+-----------------------------------------------------------------------------
+
+36. Did you notice a difference in how easily you could hear them?
+    [ ] Yes, clearly    [ ] Slightly    [ ] No    [ ] Not sure
+
+37. Did the app change the feel of your conversations, for better or worse?
+
+    ______________________________________________________________________
+
+38. Did you find yourself reminding them to speak up more, or less?
+    [ ] Less     [ ] The same     [ ] More
+
+
+Thank you. Negative feedback is genuinely more useful than positive here —
+it's a first prototype, and the point of this test is to find out what's
+wrong with it.

@@ -1,0 +1,452 @@
+PDVOICE BUDDY — GITHUB, STEP BY STEP
+Setting up the project, and putting out a new version
+
+Written for someone who has never used GitHub. No prior knowledge assumed.
+Do this once (Part 1), then Part 2 every time you have a new build.
+
+You will NOT need to learn git commands. Everything here is done in a web
+browser by dragging files, which is slower but far harder to get wrong.
+
+
+=============================================================================
+WHAT YOU ARE BUILDING, AND WHY
+=============================================================================
+
+Right now, giving a tester a new version means emailing them a file and hoping
+they notice. After this, the app checks once a day and tells them itself.
+
+The way it works is simple enough to hold in your head:
+
+    You upload the new app to a "Release" on GitHub.
+    You edit one small file, latest.json, to say a new version exists.
+    Every copy of the app reads that file within a day and shows a banner.
+
+That's the whole mechanism. If latest.json says 0.5 and the app is 0.4, the
+user gets told. If the numbers match, nothing happens.
+
+GitHub is free for this, and it also gives you a home page for the project,
+somewhere for testers to report problems, and a backup of all your work.
+
+    IF THIS LOOKS LONG, IT IS BECAUSE IT SPELLS EVERYTHING OUT. Part 1 is
+    about fifteen minutes of clicking, done once. The address the apps read
+    has already been filled in for you, so the one thing to be careful about
+    is Step 4 — the signing key. Everything else is dragging files into a
+    browser, and everything else is fixable.
+
+
+=============================================================================
+PART 1 — ONE-TIME SETUP
+=============================================================================
+
+STEP 1. MAKE AN ACCOUNT
+
+    Go to github.com and click "Sign up". Use an email you check.
+
+    Pick a username you don't mind being public — it becomes part of your
+    project's web address.
+
+
+STEP 2. CREATE THE PROJECT
+
+    Click the "+" in the top right corner, then "New repository".
+
+    Fill in:
+
+        Repository name .......  pdvoice-buddy
+        Description ...........  A light that stays on while your voice
+                                 is carrying
+        Public or Private .....  PUBLIC  (see the note below)
+        Add a README ..........  leave UNCHECKED — you already have one
+        Add .gitignore ........  None — you already have one
+        Choose a licence ......  None — you already have one
+
+    Click "Create repository".
+
+    ABOUT PUBLIC vs PRIVATE: it must be Public for the update check to work
+    without passwords. A private repository would need every copy of the app
+    to carry a secret key, which is both fragile and unwise. Public also means
+    testers can download without accounts. Nothing here is sensitive — but see
+    Step 4, which is about the one thing that IS.
+
+
+STEP 3. UPLOAD YOUR FILES
+
+    GitHub will show an almost-empty page with some instructions. Ignore most
+    of it and find the link that says "uploading an existing file".
+
+    YES, YOU CAN DRAG WHOLE FOLDERS. Drag them onto the page and the folder
+    structure is kept. You do not have to go file by file.
+
+    THE EASY WAY — use the zip you were given:
+
+        Unzip it somewhere fresh, select everything inside, and drag it all
+        in. That copy is already clean: no .venv, no dist, no keystore. There
+        is nothing to exclude and nothing to check.
+
+        This is the recommended route. Do this and skip the rest of this step.
+
+    IF INSTEAD YOU UPLOAD FROM YOUR OWN WORKING FOLDER:
+
+        Your working folder on the Desktop has extra things in it from
+        building and running the app. Leave these out:
+
+            .venv                    the Python virtual environment
+            dist                     the built .exe
+            build                    leftovers from building
+            __pycache__              leftovers from running
+            android/app/build        leftovers from Android Studio
+            .gradle                  leftovers from Android Studio
+            keystore.properties      YOUR SIGNING PASSWORDS
+            anything .jks or .keystore   YOUR SIGNING KEY
+
+        The first six are merely large and pointless — they get rebuilt
+        automatically, and .venv alone can be hundreds of megabytes. The last
+        two matter: see Step 4.
+
+    At the bottom, in the box that says "Commit changes", type:
+
+        First upload
+
+    Click "Commit changes". A large upload may take a few minutes.
+
+    DON'T WORRY ABOUT GETTING IT PERFECT. If you upload something you didn't
+    mean to, you can delete it afterwards and nothing is harmed — with the
+    single exception of the keystore, which is why it has its own step next.
+    Everything else here is fixable.
+
+
+STEP 4. THE ONE THING TO BE CAREFUL ABOUT
+
+    Your keystore file and keystore.properties are what prove an Android
+    build came from you. If they leak, anyone can publish an app pretending
+    to be yours. If you lose them, you can never update the app again —
+    Android will treat a differently-signed build as a completely different
+    app, and testers will have to uninstall and start over.
+
+    So: keep them somewhere safe and backed up, and never in the repository.
+    A password manager or an encrypted drive is right. Your desktop is not.
+
+    If you ever suspect they leaked, say so out loud and we will work out
+    what to do. It is recoverable, but only by being honest about it early.
+
+
+STEP 5. CHECK THE APPS POINT AT YOUR REPOSITORY
+
+    This has already been filled in for you:
+
+        https://raw.githubusercontent.com/cmck999/PDVBproject/main/latest.json
+
+    It appears in two files, and they must match:
+
+        android/app/src/main/java/com/pdvoicebuddy/UpdateCheck.kt
+        python/updates.py
+
+    You only need to touch them if you rename the repository, or if your
+    default branch is called something other than "main". GitHub shows the
+    branch name at the top left of the file list — yours says "main", so
+    there is nothing to do here.
+
+
+STEP 6. CHECK IT WORKS BEFORE YOU RELY ON IT
+
+    Open this in your browser:
+
+        https://raw.githubusercontent.com/cmck999/PDVBproject/main/latest.json
+
+    You should see plain text starting with a curly brace and the word
+    "_comment".
+
+    IF YOU SEE "404: Not Found", the most likely cause by far is that the
+    files were uploaded one level too deep — inside a folder — rather than at
+    the top. See "THE MOST COMMON UPLOAD MISTAKE" below.
+
+    Do not skip this. Everything else depends on that address being right.
+
+
+=============================================================================
+THE MOST COMMON UPLOAD MISTAKE
+=============================================================================
+
+AFTER UPLOADING, THE FILE LIST SHOULD LOOK LIKE THIS:
+
+    android/
+    python/
+    CHANGELOG.txt
+    latest.json
+    README.md
+    ... and the rest
+
+IF INSTEAD YOU SEE A SINGLE FOLDER — one named Git, or PDVoice Buddy, or
+anything else — with everything inside it, then the files went one level too
+deep. This happens when you drag the FOLDER in rather than its CONTENTS.
+
+Two things break, quietly:
+
+    - latest.json is not where the apps look, so updates never appear.
+    - The README does not show on your project's front page.
+
+HOW TO TELL IN ONE GLANCE: if the front page offers you an "Add a README"
+button even though you uploaded README.md, the files are too deep.
+
+THE FIX, and it is easier than it sounds. GitHub's website cannot delete a
+whole folder, so the clean route is to start the repository over. Nothing is
+lost — all the files are still on your PC.
+
+    1. Settings (the tab along the top, with the gear icon)
+    2. Scroll all the way to the bottom, to "Danger Zone"
+    3. "Delete this repository", and follow the prompts
+    4. Create it again exactly as in Step 2, with the same name
+    5. Upload again — but this time OPEN the unzipped folder, select
+       everything INSIDE it, and drag that
+
+    The distinction is: drag the contents, not the container.
+
+WHY START OVER RATHER THAN TIDY UP: moving files on GitHub's website means
+renaming them one at a time, and there are over a hundred. Deleting a
+repository with one commit in it costs nothing.
+
+THE LAZY ALTERNATIVE, if you would rather not delete: add the folder name to
+the address in both UpdateCheck.kt and updates.py, so it reads
+.../main/Git/latest.json. This does work — but the README stays hidden, every
+file path in these instructions is then wrong, and anyone else looking at the
+project will be confused. Not recommended.
+
+    Do not skip this. Everything else depends on that address being right.
+
+
+=============================================================================
+PART 2 — PUTTING OUT A NEW VERSION
+=============================================================================
+
+Do this each time. It takes about ten minutes.
+
+
+STEP 1. DECIDE THE NEW VERSION NUMBER
+
+    Small fixes:      0.4  ->  0.4.1
+    New features:     0.4  ->  0.5
+    Big change:       0.9  ->  1.0
+
+    It only has to go UP, and it must be consistent everywhere.
+
+
+STEP 2. SET THE NUMBER IN THREE PLACES
+
+    They must all agree. This is the step that goes wrong.
+
+    A. android/app/build.gradle.kts
+
+           versionCode = 5          <- add 1 EVERY time, never reuse
+           versionName = "0.5"
+
+       versionCode is the number the update check actually compares. It is
+       just a counter: 4, then 5, then 6. Android will refuse to install a
+       build whose versionCode is lower than the installed one.
+
+    B. python/updates.py
+
+           VERSION = "0.5"
+
+    C. latest.json — but not yet. That one comes last, in Step 6, and the
+       order matters: latest.json is the announcement. Editing it before the
+       files are uploaded tells everyone about a version they cannot download.
+
+
+STEP 3. BUILD BOTH APPS
+
+    ANDROID:
+        Open the android folder in Android Studio.
+        Build menu -> Generate Signed App Bundle / APK -> APK -> release.
+        Full instructions in SIGNED APK - STEP BY STEP.txt.
+        You get:  PDVoiceBuddy-0.5-release.apk
+
+    WINDOWS:
+        Double-click python/build-exe.bat.
+        You get:  dist/PDVoice Buddy.exe
+
+    RUN THE TESTS FIRST. In Android Studio, right-click VoiceCueTest.kt and
+    choose Run. They take seconds and they encode behaviour that has been got
+    wrong before. If any fail, do not release.
+
+
+STEP 4. GET THE WINDOWS CHECKSUM
+
+    The desktop app downloads a .exe from the internet and then runs it. It
+    refuses to do that unless the file matches a fingerprint you provide.
+    This is the step that makes self-updating safe rather than reckless.
+
+    Open PowerShell in the folder containing the .exe and run:
+
+        Get-FileHash ".\dist\PDVoice Buddy.exe" -Algorithm SHA256
+
+    Copy the long string of letters and numbers it prints. You will paste it
+    into latest.json in Step 6.
+
+    If you leave the sha256 field empty, the app will still update — but
+    without verification. Don't. It is one copy-and-paste.
+
+
+STEP 5. CREATE THE RELEASE
+
+    On your repository page, look down the right-hand side for "Releases",
+    and click "Create a new release" (or "Draft a new release").
+
+        Choose a tag ......  type  v0.5  and click "Create new tag"
+        Release title .....  0.5
+        Describe .........  a few plain lines about what changed.
+                            Testers read this. Write it for them, not for a
+                            developer.
+
+    Then drag both built files into the box that says "Attach binaries":
+
+        PDVoiceBuddy-0.5-release.apk
+        PDVoice Buddy.exe
+
+    Click "Publish release".
+
+    NOW GET THE TWO DOWNLOAD ADDRESSES. On the published release page,
+    right-click each attached file and choose "Copy link address". You need
+    both for the next step.
+
+    They will look like:
+
+        https://github.com/cathi/pdvoice-buddy/releases/download/v0.5/PDVoiceBuddy-0.5-release.apk
+
+    NOTE: spaces in filenames become "." in these addresses, so
+    "PDVoice Buddy.exe" becomes "PDVoice.Buddy.exe". Copy the address
+    rather than typing it, and this takes care of itself.
+
+
+STEP 6. EDIT latest.json — THE ANNOUNCEMENT
+
+    This is the moment every copy of the app finds out. Everything else was
+    preparation.
+
+    On github.com, click latest.json, then the pencil icon.
+
+    Update six things:
+
+        android.versionCode ....  5              (match build.gradle.kts)
+        android.versionName ....  "0.5"
+        android.url ............  the .apk address you copied
+        windows.version ........  "0.5"
+        windows.url ............  the .exe address you copied
+        windows.sha256 .........  the checksum from Step 4
+
+    And the notes. These appear IN the banner, on the user's screen, so keep
+    them short and plain — what changed for them, not what changed in the
+    code:
+
+        "notes": [
+          "The dot no longer flickers between words",
+          "Bigger buttons on the pill"
+        ]
+
+    Two or three lines. Not a changelog.
+
+    Click "Commit changes".
+
+
+STEP 7. CHECK IT FROM A REAL DEVICE
+
+    Do not assume. On a tablet with the OLD version installed:
+
+        Open PDVoice Buddy -> gear -> Updates -> "Check now"
+
+    You should see "Version 0.5 is ready". Tap it and confirm the download
+    starts.
+
+    Everyone else finds out within a day, automatically.
+
+
+=============================================================================
+IF YOU EVER NEED TO FORCE AN UPDATE
+=============================================================================
+
+If a build has a real problem — the dot doesn't work, something unsafe — you
+can make the banner insistent. It loses its "Later" button and will not go
+away until they update.
+
+In latest.json:
+
+    "minSupportedVersionCode": 5      (Android — anything below this)
+    "minSupportedVersion": "0.5"      (Windows)
+
+USE THIS SPARINGLY. It takes away the user's choice, and a nagging banner on
+a tool someone relies on is genuinely unpleasant.
+
+What it deliberately does NOT do is stop the app working. The dot keeps
+running even on an unsupported version, because switching off someone's voice
+cue to force an upgrade would be punishing them for our mistake. If you ever
+find yourself wanting a version that refuses to run, that is a sign the fix
+should be handled some other way.
+
+
+=============================================================================
+WHEN SOMETHING GOES WRONG
+=============================================================================
+
+"Check now" says it's the newest, but I published a new one
+    Almost always latest.json. Check that versionCode there is HIGHER than
+    the installed build, and that you actually committed the change. Open the
+    raw address from Part 1 Step 6 and read it with your own eyes.
+
+Nobody is being told about the update
+    Then the app cannot read latest.json. Test the raw address in a browser.
+    If it 404s, the OWNER/REPO line in UpdateCheck.kt is wrong, or the branch
+    is called master rather than main.
+
+The banner appears but the download fails
+    The url in latest.json is wrong. Copy it from the release page rather
+    than typing it — the "." for spaces trips everyone up once.
+
+The Windows app says "Could not install it"
+    Usually the checksum doesn't match — you rebuilt the .exe after taking
+    the hash. Take it again from the exact file you uploaded.
+
+Android says "App not installed"
+    The new build is signed with a different key from the installed one.
+    Check you used the same keystore. If the keystore is genuinely lost, say
+    so — testers will have to uninstall first, and that's worth explaining to
+    them rather than leaving them stuck.
+
+I uploaded my keystore by mistake
+    Say so immediately. Delete it from the repository, then create a new
+    keystore for future releases. Do not quietly hope. A published signing
+    key is the one mistake here that matters.
+
+
+=============================================================================
+WHAT ELSE GITHUB GIVES YOU
+=============================================================================
+
+Worth knowing about, none of it required:
+
+    ISSUES — a list of problems and requests. Better than email for tracking
+    tester feedback, because nothing gets lost and everyone can see what's
+    already known. Turn it on under Settings -> Features.
+
+    THE README — the page people see first. Yours is already written.
+
+    RELEASES — a permanent record of every version. Useful when a tester says
+    "it worked better before" and you need the old build.
+
+    A WEB ADDRESS you can hand out:  github.com/YOUR-NAME/pdvoice-buddy
+
+    HISTORY — every change, forever, with the ability to go back. This is the
+    real reason to use it: nothing you do here can be permanently lost.
+
+
+=============================================================================
+A SENSIBLE RHYTHM FOR BETA
+=============================================================================
+
+    Don't release for every small fix. Testers who are asked to update twice
+    a week stop updating.
+
+    Collect feedback for a week or two, fix a batch, release once. Write the
+    notes so a tester can see their own complaint was heard — that is what
+    keeps people testing.
+
+    Keep CHANGELOG.txt honest, including the reversals. Future you will want
+    to know why something was changed back.

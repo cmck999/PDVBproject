@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:oklch(0.962 0.008 85); }
+  a { color:oklch(0.50 0.10 40); text-decoration:none; border-bottom:1px solid oklch(0.50 0.10 40 / 0.35); }
+  a:hover { color:oklch(0.40 0.12 40); }
+  input[type=range] { accent-color:oklch(0.45 0.10 40); }
+</style>
+</helmet>
+
+<div style="font-family:'IBM Plex Sans',system-ui,sans-serif; color:oklch(0.24 0.012 70); background:oklch(0.962 0.008 85); padding:56px 48px 88px; display:flex; flex-direction:column; gap:32px; width:1300px; margin:0 auto; box-sizing:border-box;">
+
+  <header style="display:flex; justify-content:space-between; align-items:flex-end; gap:40px; padding-bottom:26px; border-bottom:1px solid oklch(0.24 0.012 70 / 0.18);">
+    <div style="display:flex; flex-direction:column; gap:10px;">
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:oklch(0.52 0.05 70);">Working prototype &nbsp;·&nbsp; desktop</div>
+      <h1 style="font-family:Newsreader,serif; font-weight:400; font-size:52px; line-height:1.02; margin:0; letter-spacing:-0.018em;">Carry — the desktop cue</h1>
+    </div>
+    <p style="max-width:400px; margin:0 0 4px; font-size:14.5px; line-height:1.62; color:oklch(0.42 0.02 70); text-wrap:pretty;">This runs for real. Turn on the microphone, calibrate against your own room, and the light behaves exactly as the shipped app would. Everything below the window is the same engine driving the pill and the menu-bar dot.</p>
+  </header>
+
+  <div style="display:flex; gap:14px; align-items:center; flex-wrap:wrap;">
+    <button onClick="{{ toggleMic }}" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; padding:13px 20px; border-radius:2px; border:1px solid oklch(0.24 0.012 70 / 0.32); background:{{ micBtnBg }}; color:{{ micBtnFg }}; cursor:pointer;">{{ micLabel }}</button>
+    <sc-for list="{{ modes }}" as="m" hint-placeholder-count="3">
+      <button onClick="{{ m.onClick }}" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; padding:13px 18px; border-radius:2px; border:1px solid oklch(0.24 0.012 70 / 0.22); background:{{ m.bg }}; color:{{ m.fg }}; cursor:pointer;">{{ m.label }}</button>
+    </sc-for>
+    <span style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:oklch(0.55 0.04 70); margin-left:4px;">{{ micNote }}</span>
+  </div>
+
+  <div style="position:relative; border-radius:8px; overflow:hidden; background-image:repeating-linear-gradient(135deg, oklch(0.235 0.012 70) 0 9px, oklch(0.262 0.012 70) 9px 18px); box-shadow:0 22px 50px oklch(0.24 0.012 70 / 0.2); min-height:760px; display:flex; flex-direction:column;">
+
+    <div style="display:flex; justify-content:space-between; align-items:center; height:30px; padding:0 16px; background:oklch(0.28 0.008 70); font-family:'IBM Plex Mono',monospace; font-size:11px; color:oklch(0.74 0.02 70); flex-shrink:0;">
+      <div style="display:flex; gap:20px;"><span style="font-weight:500;">Carry</span><span>File</span><span>Window</span><span>Help</span></div>
+      <div style="display:flex; gap:18px; align-items:center;">
+        <div style="display:flex; align-items:center; gap:7px;">
+          <div style="width:10px; height:10px; border-radius:99px; transition:background .12s linear, box-shadow .12s linear; background:{{ lampColor }}; box-shadow:{{ dotGlow }};"></div>
+          <span>{{ menuBarText }}</span>
+        </div>
+        <span>Wed 24 Aug</span><span>9:41</span>
+      </div>
+    </div>
+
+    <div style="flex:1; display:flex; align-items:flex-start; justify-content:center; padding:44px 40px 0;">
+      <sc-if value="{{ showWindow }}" hint-placeholder-val="{{ true }}">
+        <div style="width:900px; background:oklch(0.975 0.006 85); border-radius:9px; overflow:hidden; box-shadow:0 26px 60px oklch(0.1 0.01 70 / 0.5);">
+          <div style="height:40px; display:flex; align-items:center; gap:9px; padding:0 15px; background:oklch(0.935 0.008 85); border-bottom:1px solid oklch(0.24 0.012 70 / 0.12);">
+            <div style="width:11px; height:11px; border-radius:99px; background:oklch(0.68 0.14 25);"></div>
+            <div style="width:11px; height:11px; border-radius:99px; background:oklch(0.80 0.11 85);"></div>
+            <div style="width:11px; height:11px; border-radius:99px; background:oklch(0.75 0.13 145);"></div>
+            <span style="font-size:12.5px; font-weight:500; color:oklch(0.42 0.02 70); margin-left:10px;">Carry</span>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1.06fr 0.94fr;">
+            <div style="padding:34px 34px 36px; display:flex; flex-direction:column; gap:26px; border-right:1px solid oklch(0.24 0.012 70 / 0.12);">
+              <div style="display:flex; align-items:center; gap:26px;">
+                <div style="width:124px; height:124px; border-radius:999px; border:15px solid; transition:border-color .12s linear, box-shadow .12s linear; border-color:{{ lampColor }}; box-shadow:{{ ringGlow }}; flex-shrink:0;"></div>
+                <div style="display:flex; flex-direction:column; gap:7px;">
+                  <div style="font-family:'IBM Plex Mono',monospace; font-size:13px; letter-spacing:.18em; text-transform:uppercase; color:{{ statusColor }};">{{ statusText }}</div>
+                  <div style="font-family:Newsreader,serif; font-size:38px; line-height:1.05;">{{ headline }}</div>
+                  <div style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:oklch(0.52 0.04 70);">{{ subline }}</div>
+                </div>
+              </div>
+
+              <div style="display:flex; flex-direction:column; gap:9px;">
+                <div style="display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:oklch(0.56 0.04 70);">
+                  <span>Last 30 seconds</span><span>{{ dbText }}</span>
+                </div>
+                <div style="display:flex; align-items:flex-end; gap:2px; height:94px; padding:8px 10px; background:oklch(0.935 0.01 85); border:1px solid oklch(0.24 0.012 70 / 0.12);">
+                  <sc-for list="{{ history }}" as="bar" hint-placeholder-count="60">
+                    <div style="flex:1; min-width:1px; height:{{ bar.h }}%; background:{{ bar.color }};"></div>
+                  </sc-for>
+                </div>
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:oklch(0.56 0.04 70);">{{ historyNote }}</div>
+              </div>
+
+              <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:oklch(0.24 0.012 70 / 0.14);">
+                <sc-for list="{{ stats }}" as="s" hint-placeholder-count="3">
+                  <div style="background:oklch(0.975 0.006 85); padding:16px 14px; display:flex; flex-direction:column; gap:6px;">
+                    <div style="font-family:'IBM Plex Mono',monospace; font-size:24px; letter-spacing:-0.01em; color:oklch(0.26 0.012 70);">{{ s.value }}</div>
+                    <div style="font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:oklch(0.54 0.04 70); line-height:1.4;">{{ s.label }}</div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+
+            <div style="padding:34px 34px 36px; display:flex; flex-direction:column; gap:28px;">
+              <div style="display:flex; flex-direction:column; gap:14px;">
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:oklch(0.56 0.04 70);">Calibration</div>
+                <p style="margin:0; font-size:13.5px; line-height:1.6; color:oklch(0.40 0.02 70); text-wrap:pretty;">{{ calibCopy }}</p>
+                <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+                  <button onClick="{{ startCalibration }}" style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; padding:11px 16px; border-radius:2px; border:1px solid oklch(0.24 0.012 70 / 0.3); background:transparent; color:oklch(0.26 0.012 70); cursor:pointer;" style-hover="background:oklch(0.24 0.012 70); color:oklch(0.96 0.008 85);">{{ calibButton }}</button>
+                  <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:oklch(0.42 0.06 40);">{{ floorText }}</span>
+                </div>
+              </div>
+
+              <div style="display:flex; flex-direction:column; gap:12px; padding-top:24px; border-top:1px solid oklch(0.24 0.012 70 / 0.14);">
+                <div style="display:flex; justify-content:space-between; align-items:baseline;">
+                  <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:oklch(0.56 0.04 70);">Threshold</div>
+                  <div style="font-family:'IBM Plex Mono',monospace; font-size:14px; color:oklch(0.42 0.06 40);">{{ thresholdText }}</div>
+                </div>
+                <input type="range" min="40" max="85" step="1" value="{{ threshold }}" onInput="{{ onThreshold }}" onChange="{{ onThreshold }}" style="width:100%;">
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; line-height:1.6; color:oklch(0.56 0.04 70);">Start where you can already succeed. Raise it a point or two a week with your speech therapist.</div>
+              </div>
+
+              <div style="display:flex; flex-direction:column; gap:12px; padding-top:24px; border-top:1px solid oklch(0.24 0.012 70 / 0.14);">
+                <div style="display:flex; justify-content:space-between; align-items:baseline;">
+                  <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:oklch(0.56 0.04 70);">Hold after speech</div>
+                  <div style="font-family:'IBM Plex Mono',monospace; font-size:14px; color:oklch(0.42 0.06 40);">{{ holdText }}</div>
+                </div>
+                <input type="range" min="0" max="2000" step="50" value="{{ hold }}" onInput="{{ onHold }}" onChange="{{ onHold }}" style="width:100%;">
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; line-height:1.6; color:oklch(0.56 0.04 70);">Set to zero to see why this exists — the light will strobe on every syllable gap.</div>
+              </div>
+
+              <div style="display:flex; flex-direction:column; gap:10px; padding-top:24px; border-top:1px solid oklch(0.24 0.012 70 / 0.14);">
+                <sc-for list="{{ toggles }}" as="t" hint-placeholder-count="3">
+                  <div onClick="{{ t.onClick }}" style="display:flex; justify-content:space-between; align-items:center; gap:14px; padding:11px 13px; cursor:pointer; background:{{ t.bg }};" style-hover="background:oklch(0.93 0.012 85)">
+                    <div style="display:flex; flex-direction:column; gap:3px;">
+                      <span style="font-size:13px;">{{ t.label }}</span>
+                      <span style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:oklch(0.55 0.04 70);">{{ t.sub }}</span>
+                    </div>
+                    <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:{{ t.valueColor }};">{{ t.value }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="display:flex; justify-content:flex-end; padding:32px 40px 34px;">
+      <sc-if value="{{ showPill }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex; align-items:center; gap:14px; padding:13px 20px 13px 16px; border-radius:99px; background:oklch(0.16 0.01 70 / 0.94); border:1px solid oklch(1 0 0 / 0.1); box-shadow:0 12px 30px oklch(0.1 0.01 70 / 0.45);">
+          <div style="width:28px; height:28px; border-radius:99px; border:7px solid; transition:border-color .12s linear, box-shadow .12s linear; border-color:{{ lampColor }}; box-shadow:{{ dotGlow }}; flex-shrink:0;"></div>
+          <div style="display:flex; flex-direction:column; gap:2px;">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:{{ statusColor }};">{{ statusText }}</span>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:oklch(0.64 0.02 70);">{{ pillSub }}</span>
+          </div>
+          <div style="width:1px; height:26px; background:oklch(1 0 0 / 0.12);"></div>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:16px; color:oklch(0.88 0.01 85);">{{ dbText }}</span>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+
+  <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:32px; padding-top:8px;">
+    <sc-for list="{{ notes }}" as="n" hint-placeholder-count="3">
+      <div style="display:flex; flex-direction:column; gap:9px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:oklch(0.58 0.09 40);">{{ n.tag }}</div>
+        <div style="font-size:14px; font-weight:600;">{{ n.title }}</div>
+        <p style="margin:0; font-size:13px; line-height:1.62; color:oklch(0.44 0.02 70); text-wrap:pretty;">{{ n.body }}</p>
+      </div>
+    </sc-for>
+  </div>
+
+  <div style="display:flex; flex-direction:column; gap:16px; padding-top:30px; border-top:1px solid oklch(0.24 0.012 70 / 0.18);">
+    <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:oklch(0.52 0.05 70);">What's left to build</div>
+    <div style="display:grid; grid-template-columns:repeat(2, 1fr); gap:1px; background:oklch(0.24 0.012 70 / 0.14);">
+      <sc-for list="{{ todo }}" as="t" hint-placeholder-count="6">
+        <div style="background:oklch(0.962 0.008 85); padding:16px 20px; display:flex; justify-content:space-between; gap:18px; align-items:baseline;">
+          <span style="font-size:13.5px; line-height:1.5;">{{ t.item }}</span>
+          <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:{{ t.color }}; white-space:nowrap;">{{ t.state }}</span>
+        </div>
+      </sc-for>
+    </div>
+    <p style="margin:6px 0 0; font-size:12.5px; line-height:1.6; color:oklch(0.52 0.03 70); font-style:italic; max-width:640px;">Prototype, not a medical device. The dB numbers here are relative to a rough browser calibration — a shipped app must be calibrated against a real SPL meter at the seat the person actually uses.</p>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1300},&quot;autoStart&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Behavior&quot;},&quot;litColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#74d49c&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#74d49c&quot;,&quot;#f0c04a&quot;,&quot;#8ab6f0&quot;,&quot;#e8e4da&quot;],&quot;section&quot;:&quot;Cue&quot;},&quot;calibrationOffset&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:94,&quot;tsType&quot;:&quot;number&quot;,&quot;min&quot;:70,&quot;max&quot;:110,&quot;unit&quot;:&quot;dB&quot;,&quot;section&quot;:&quot;Mic&quot;}}">
+class Component extends DCLogic {
+  state = {
+    db: 42, lit: false, mic: 'off', mode: 'both',
+    threshold: 60, hold: 700, noiseFloor: null,
+    calibrating: false, calibLeft: 0,
+    roomComp: true, dimWhenQuiet: false, logging: true,
+    history: [], speech: 0, projected: 0
+  };
+
+  componentDidMount() {
+    this._lastAbove = -1e9;
+    if (this.props.autoStart ?? true) this.tryAutoStart();
+  }
+
+  async tryAutoStart() {
+    try {
+      const p = await navigator.permissions.query({ name: 'microphone' });
+      if (p.state !== 'granted') { this.setState({ mic: 'needs-permission' }); return; }
+    } catch (e) {
+      // Permissions API unavailable — attempt anyway; a prompt may appear.
+    }
+    this.toggleMic();
+  }
+  componentWillUnmount() { this.stopMic(); }
+
+  get effectiveThreshold() {
+    const { threshold, noiseFloor, roomComp } = this.state;
+    if (!roomComp || noiseFloor == null) return threshold;
+    return Math.max(threshold, noiseFloor + 12);
+  }
+
+  push(db) {
+    const now = performance.now();
+    const thr = this.effectiveThreshold;
+    if (db >= thr) this._lastAbove = now;
+    const lit = now - this._lastAbove < this.state.hold;
+
+    this.setState(s => {
+      const history = s.history.concat([db]).slice(-60);
+      const floor = s.noiseFloor;
+      const isSpeech = floor == null ? db > 45 : db > floor + 8;
+      return {
+        db, lit, history,
+        speech: s.speech + (isSpeech ? 1 : 0),
+        projected: s.projected + (isSpeech && db >= thr ? 1 : 0)
+      };
+    });
+  }
+
+  toggleMic = async () => {
+    if (this.state.mic === 'on') { this.stopMic(); return; }
+    this.setState({ mic: 'starting' });
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false }
+      });
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const an = ctx.createAnalyser();
+      an.fftSize = 2048;
+      ctx.createMediaStreamSource(stream).connect(an);
+      this._audio = { stream, ctx, an, buf: new Float32Array(an.fftSize) };
+      this.setState({ mic: 'on', history: [], speech: 0, projected: 0 });
+      this._calibSamples = null;
+      this._timer = setInterval(() => this.tick(), 80);
+    } catch (e) {
+      this.setState({ mic: 'denied' });
+    }
+  };
+
+  tick() {
+    const a = this._audio;
+    if (!a) return;
+    a.an.getFloatTimeDomainData(a.buf);
+    let sum = 0;
+    for (let i = 0; i < a.buf.length; i++) sum += a.buf[i] * a.buf[i];
+    const dbfs = 20 * Math.log10(Math.max(Math.sqrt(sum / a.buf.length), 1e-7));
+    const db = Math.max(30, Math.min(95, dbfs + (this.props.calibrationOffset ?? 94)));
+
+    if (this.state.calibrating) {
+      this._calibSamples.push(db);
+      const left = Math.max(0, this._calibEnd - performance.now());
+      this.setState({ db, calibLeft: Math.ceil(left / 1000) });
+      if (left <= 0) this.finishCalibration();
+      return;
+    }
+    this.push(db);
+  }
+
+  startCalibration = () => {
+    if (this.state.mic !== 'on') { this.toggleMic(); return; }
+    this._calibSamples = [];
+    this._calibEnd = performance.now() + 5000;
+    this.setState({ calibrating: true, calibLeft: 5 });
+  };
+
+  finishCalibration() {
+    const s = this._calibSamples.slice().sort((a, b) => a - b);
+    const median = s.length ? s[Math.floor(s.length / 2)] : 40;
+    this.setState({
+      calibrating: false, calibLeft: 0,
+      noiseFloor: Math.round(median),
+      threshold: Math.min(85, Math.max(50, Math.round(median) + 18))
+    });
+  }
+
+  stopMic() {
+    if (this._timer) clearInterval(this._timer);
+    this._timer = null;
+    if (this._audio) {
+      this._audio.stream.getTracks().forEach(t => t.stop());
+      this._audio.ctx.close();
+      this._audio = null;
+    }
+    this.setState({ mic: 'off', lit: false, calibrating: false });
+  }
+
+  onThreshold = (e) => this.setState({ threshold: parseInt(e.target.value, 10) });
+  onHold = (e) => this.setState({ hold: parseInt(e.target.value, 10) });
+
+  renderVals() {
+    const s = this.state;
+    const c = this.props.litColor ?? '#74d49c';
+    const lit = s.lit;
+    const thr = this.effectiveThreshold;
+    const on = s.mic === 'on';
+    const pctProjected = s.speech > 0 ? Math.round(s.projected / s.speech * 100) : null;
+
+    const modeBtn = (key, label) => ({
+      label, onClick: () => this.setState({ mode: key }),
+      bg: s.mode === key ? 'oklch(0.24 0.012 70)' : 'transparent',
+      fg: s.mode === key ? 'oklch(0.96 0.008 85)' : 'oklch(0.40 0.02 70)'
+    });
+
+    const toggle = (key, label, sub, onLabel, offLabel) => ({
+      label, sub,
+      value: s[key] ? onLabel : offLabel,
+      valueColor: s[key] ? 'oklch(0.48 0.10 148)' : 'oklch(0.58 0.04 70)',
+      bg: s[key] ? 'oklch(0.945 0.014 85)' : 'transparent',
+      onClick: () => this.setState({ [key]: !s[key] })
+    });
+
+    return {
+      dbText: on ? s.db.toFixed(0) + ' dB' : '— dB',
+      lampColor: lit ? c : 'oklch(0.72 0.012 70)',
+      ringGlow: lit ? '0 0 30px ' + c + '88' : 'none',
+      dotGlow: lit ? '0 0 12px ' + c : 'none',
+      statusText: s.calibrating ? 'Listening to the room' : lit ? 'Carrying' : on ? 'Too quiet' : 'Paused',
+      statusColor: lit ? 'oklch(0.48 0.10 148)' : 'oklch(0.56 0.04 70)',
+      menuBarText: s.calibrating ? 'Calibrating…' : lit ? 'Carrying' : on ? 'Quiet' : 'Off',
+
+      headline: s.calibrating ? 'Stay quiet for ' + s.calibLeft + 's'
+        : lit ? 'They can hear you.'
+        : on ? 'Try a little louder.'
+        : 'Microphone is off.',
+      subline: s.calibrating ? 'Measuring the room\'s noise floor'
+        : on ? 'Target ' + thr + ' dB' + (s.roomComp && s.noiseFloor != null && thr > s.threshold ? ' — raised for room noise' : '')
+        : 'Turn it on to see the cue respond',
+      pillSub: pctProjected != null ? pctProjected + '% of this session projected' : 'no speech measured yet',
+
+      showWindow: s.mode === 'window' || s.mode === 'both',
+      showPill: s.mode === 'pill' || s.mode === 'both',
+      modes: [modeBtn('both', 'Both'), modeBtn('window', 'Window only'), modeBtn('pill', 'Pill only')],
+
+      micLabel: on ? 'Stop microphone' : s.mic === 'starting' ? 'Requesting…' : 'Start microphone',
+      micBtnBg: on ? 'oklch(0.24 0.012 70)' : 'transparent',
+      micBtnFg: on ? 'oklch(0.96 0.008 85)' : 'oklch(0.26 0.012 70)',
+      micNote: on ? 'live — started automatically, as the shipped app would'
+        : s.mic === 'denied' ? 'permission denied — allow the mic and try again'
+        : s.mic === 'needs-permission' ? 'auto-start blocked: grant mic access once, then it starts on its own'
+        : 'nothing is recorded; only a loudness number per 80 ms',
+
+      history: (s.history.length ? s.history : new Array(60).fill(null)).map((v, i) => ({
+        h: v == null ? 6 : Math.max(2, Math.min(100, (v - 35) / 55 * 100)),
+        color: v == null ? 'oklch(0.86 0.012 85)' : v >= thr ? c : 'oklch(0.84 0.02 85)'
+      })),
+      historyNote: on
+        ? 'Green bars cleared the threshold. Grey ones didn\'t.'
+        : 'The trace fills in once the microphone is running.',
+
+      stats: [
+        { value: pctProjected != null ? pctProjected + '%' : '—', label: 'of speech projected' },
+        { value: on ? Math.round(s.speech * 0.08) + 's' : '—', label: 'speaking this session' },
+        { value: s.noiseFloor != null ? s.noiseFloor + ' dB' : '—', label: 'room noise floor' }
+      ],
+
+      calibCopy: s.calibrating
+        ? 'Sit where you normally sit and stay silent. Carry is measuring what the room sounds like with nobody talking.'
+        : s.noiseFloor != null
+          ? 'Calibrated. The threshold was set 18 dB above the room floor — a level most people can reach without straining. Recalibrate whenever you move rooms.'
+          : 'Before anything else, teach it your room. Five seconds of silence from your usual seat is enough to set a threshold that means something.',
+      calibButton: s.calibrating ? s.calibLeft + '…' : s.noiseFloor != null ? 'Recalibrate' : 'Calibrate the room',
+      floorText: s.noiseFloor != null ? 'floor ' + s.noiseFloor + ' dB · target ' + thr + ' dB' : 'not calibrated',
+
+      threshold: s.threshold,
+      thresholdText: s.threshold + ' dB',
+      onThreshold: this.onThreshold,
+      hold: s.hold,
+      holdText: (s.hold / 1000).toFixed(2) + ' s',
+      onHold: this.onHold,
+
+      toggles: [
+        toggle('roomComp', 'Room compensation', 'Raises the target when the room gets loud', 'On', 'Off'),
+        toggle('dimWhenQuiet', 'Dim instead of dark', 'Some people find a fully dark ring discouraging', 'On', 'Off'),
+        toggle('logging', 'Keep a daily log', 'Stored locally, exportable for therapy', 'On', 'Off')
+      ],
+
+      notes: [
+        { tag: 'Why desktop first', title: 'It costs nothing to test the idea', body: 'The open question isn\'t whether a mic can measure loudness — it\'s whether a light changes how someone speaks. Software answers that this month, with no parts to order.' },
+        { tag: 'The pill', title: 'Always on top, corner-parked', body: 'Sits over video calls where hypophonia hurts most: the other person can\'t lean in or lip-read, so quiet speech simply vanishes.' },
+        { tag: 'The honest limit', title: 'Only works at the screen', body: 'Meals and visits are where projection matters and no laptop belongs. That gap is the whole argument for the puck later.' }
+      ],
+
+      todo: [
+        { item: 'Loudness engine, hold timer, hysteresis', state: 'working', color: 'oklch(0.48 0.10 148)' },
+        { item: 'Room noise-floor calibration', state: 'working', color: 'oklch(0.48 0.10 148)' },
+        { item: 'Native always-on-top pill window', state: 'needs a shell app', color: 'oklch(0.50 0.10 40)' },
+        { item: 'Menu-bar item and launch at login', state: 'needs a shell app', color: 'oklch(0.50 0.10 40)' },
+        { item: 'Mic starts with the app, no button to press', state: 'working', color: 'oklch(0.48 0.10 148)' },
+        { item: 'SPL-meter calibration against a real reference', state: 'next', color: 'oklch(0.50 0.10 40)' },
+        { item: 'Daily log, weekly trend, PDF for the SLP', state: 'designed, not built', color: 'oklch(0.50 0.10 40)' },
+        { item: 'A visible pause control the person can find', state: 'next', color: 'oklch(0.50 0.10 40)' }
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>

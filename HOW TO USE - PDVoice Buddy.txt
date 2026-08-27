@@ -1,0 +1,167 @@
+PDVoice Buddy — Windows and Mac
+A light that stays on while your voice is carrying
+
+
+WHAT IT DOES
+------------
+
+Parkinson's makes voices quieter without the person noticing. You feel like
+you're speaking normally; the room hears a whisper.
+
+PDVoice Buddy listens to the room and shows you one thing: a glowing dot.
+Bright means your voice is carrying. Dim means it's fading, and it's time to
+push a little.
+
+That's the whole app. No exercises, no scores, nothing to read while you're
+mid-sentence.
+
+It works out how loud the room is and asks you to rise above it. That means it
+adjusts itself — a quiet study and a room with the television on both work,
+without you changing anything.
+
+This is the same app as the tablet version, with the same measurement and the
+same settings.
+
+
+STARTING IT
+-----------
+
+Double-click PDVoice Buddy.
+
+The first time, Windows or your Mac may ask to allow the microphone. Say yes.
+
+Nothing is ever recorded. It measures how loud the room is, about twenty times
+a second, keeps that one number, and throws the sound away. There is no
+recording to find, because none is ever made.
+
+If nothing appears to happen, run "Show errors" instead — it keeps the window
+open so any message can be read.
+
+
+THE FIRST FEW SECONDS
+---------------------
+
+When it starts it says "Listening to the room" for a second or two. That's it
+learning what your room sounds like with nobody talking.
+
+If you move the computer to a different room, or the room gets much noisier,
+pause and unpause it so it relearns.
+
+
+USING IT
+--------
+
+Just talk. Watch the dot out of the corner of your eye.
+
+  Bright and glowing ......... They can hear you. Keep going.
+  Dim and small .............. You're fading. Speak up.
+  Growing and shrinking ...... It follows every word, so you can see
+                               yourself getting louder before you reach
+                               the target.
+
+Don't stare at it. The dot is meant for the corner of your eye, while your
+attention stays on the person you're talking to.
+
+
+THE BUTTONS
+-----------
+
+  Pause (two bars) ..... Stops it listening. Press it for private calls, or
+                         when you're watching something. Press again — it
+                         becomes a triangle — to start listening again.
+
+  Gear ................. Settings.
+
+  ✕ .................... Hides it. It keeps listening, and the icon stays
+                         near the clock. Click that icon to bring it back.
+                         To stop it completely, use Quit in settings, or
+                         right-click the icon near the clock.
+
+On the full-screen size you can also click anywhere to open settings, or press
+Esc to hide.
+
+
+SETTINGS
+--------
+
+Four things, and you'll probably only ever change the first.
+
+HOW LOUD YOU NEED TO BE
+    Five choices, from Gentle to Strong.
+
+    Pick one you can already manage. If the dot is dark most of the time,
+    the setting is too high — go down a step. You want a dot that's lit more
+    often than not.
+
+    If you're working with a speech therapist, ask them where to set it, and
+    raise it a step every week or two rather than all at once.
+
+COLOUR
+    Mint, amber, sky or white. Whichever you notice most easily.
+
+SIZE
+    Small pill — a narrow bar that floats on top of everything else, so you
+    can use the computer normally. Drag it anywhere; it remembers where you
+    left it.
+
+    Full screen — a large dot filling the screen. Good for a second monitor,
+    or a laptop parked on the table during a conversation.
+
+OPEN AT LOGIN
+    Starts it automatically when you turn the computer on, so there's nothing
+    to remember. Recommended.
+
+
+LEAVING IT RUNNING
+------------------
+
+It's meant to be left on. Hiding it with ✕ keeps it listening.
+
+The icon near the clock — on Windows you may need to click the small arrow to
+see hidden icons — shows it's running. Click it to show or hide the app,
+right-click it for Settings and Quit.
+
+
+IF SOMETHING'S WRONG
+--------------------
+
+The dot never lights up, even when I speak up
+    The setting is probably too high. Open settings and go down a step or
+    two — try Easy or Gentle.
+
+The dot is always lit, even when I whisper
+    Something in the room is noisy — a television, a fan, a fan inside the
+    computer itself. Turn it off if you can, then pause and unpause so it
+    relearns the room.
+
+It says "Listening to the room" and stays that way
+    Give it two seconds. If it doesn't change, pause and unpause.
+
+It says "No microphone"
+    Windows: Settings > Privacy & security > Microphone, and make sure
+    desktop apps are allowed.
+    Mac: System Settings > Privacy & Security > Microphone.
+
+The dot doesn't react at all
+    If you have several microphones — a webcam, a headset, a docking
+    station — the computer may be listening through one that's facing away
+    from you. Change the default input device in your sound settings.
+
+I lost it
+    Look for the icon near the clock, behind the small arrow for hidden
+    icons. Click it.
+
+
+ONE HONEST NOTE
+---------------
+
+This is a homemade tool, not a medical device.
+
+It's good at telling louder from quieter in one place. It is not a
+measurement, and it should not be used to make any decision about treatment.
+
+Use it as a reminder. Set the level with your speech-language pathologist
+rather than guessing, especially if you're already doing speech therapy.
+
+If the dot helps you stay audible, that's the whole point. If it turns into
+one more thing nagging at you, close it and say so — it can be changed.

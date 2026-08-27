@@ -1,0 +1,314 @@
+PDVOICE BUDDY — CHANGELOG
+A light that stays on while your voice is carrying
+
+Newest first. Version numbers are informal; this is a prototype, not a
+shipped product.
+
+Written for whoever picks this project up next — including future me. Where a
+decision was reversed, the reason is recorded rather than quietly erased,
+because the reversals are the most useful part of a document like this.
+
+
+=============================================================================
+0.5 — UPDATES, AND A REAL HOME
+In progress. Android and Windows.
+=============================================================================
+
+The project became a GitHub repository, largely so that beta testers can be
+updated without being emailed files.
+
+ADDED
+    - Update checking on both platforms. The app reads one small JSON file
+      from the repository once a day and shows a banner when a newer build
+      exists. An Updates section in Settings shows the installed version and
+      offers a manual Check now.
+    - Windows updates itself: downloads, verifies a SHA-256, replaces its own
+      .exe and restarts. One button.
+    - Repository scaffolding — README.md, LICENSE (MIT, with an explicit
+      not-a-medical-device notice), .gitignore, latest.json.
+    - GITHUB - STEP BY STEP.txt, written for someone who has never used
+      GitHub, covering setup and the release process.
+
+DELIBERATE LIMITS, EACH ONE A DECISION
+    Android cannot install silently outside the Play Store, so it hands the
+    file to the browser and the user taps to install. The banner says so
+    plainly rather than implying otherwise.
+
+    Nothing downloads without a button press. A tool someone relies on should
+    not change under them unannounced.
+
+    A critical update is an insistent banner that loses its "Later" button —
+    it is NOT a lock. The dot keeps running on an unsupported version.
+    Switching off someone's voice cue to force an upgrade would punish them
+    for a developer mistake.
+
+    The Windows download is verified against a checksum before being run.
+    Fetching an executable over the network and running it unverified would
+    be careless.
+
+    Update failures are silent. No network, no server, bad JSON — the app
+    carries on and tries tomorrow. An update check is not worth an error
+    message in front of a patient.
+
+    The repository must be public, because a private one would require every
+    copy of the app to carry a secret key.
+
+ALSO
+    - In pill mode the main screen normally steps aside immediately. It now
+      stays put when there is an update to announce, since the pill has no
+      room for a banner. Pill users also get a one-time tray notification.
+    - Version bumped to 0.4/versionCode 4 in the build file, which had been
+      left at 0.1 since the first build.
+
+STILL OPEN
+    The OWNER/REPO placeholder in UpdateCheck.kt and updates.py must be
+    replaced with the real repository before any of this functions. Step 5 of
+    the GitHub guide.
+
+
+=============================================================================
+0.4 — THE CONVERSATIONAL FLOOR
+Android and Windows.
+=============================================================================
+
+Prompted by a Parkinson's physician's assistant reviewing the app. Her
+correction was the most substantive external feedback the project has had.
+
+THE PROBLEM SHE IDENTIFIED
+    Up to 0.3 the dot measured one thing: is the voice above the room? That
+    works in a restaurant and fails badly in a quiet living room, where a
+    whisper is comfortably above the background and lights the dot. The app
+    was rewarding the exact habit it exists to correct.
+
+    Being audible and projecting at a normal conversational volume are not
+    the same goal, and the app was only pursuing the first.
+
+WHAT CHANGED
+    The dot now requires the voice to clear TWO bars at once:
+
+        1. Above the room, by a margin      (handles noisy places)
+        2. Above an absolute dB level       (handles quiet places)
+
+    Whichever is higher governs. The room decides in a restaurant; the
+    absolute level decides in a silent room.
+
+    The five sensitivity steps now carry a dB target across the normal
+    conversational band:
+
+        Gentle  ~57 dB    just below conversational, for starting out
+        Easy    ~60 dB
+        Normal  ~63 dB    the default
+        Firm    ~66 dB
+        Strong  ~69 dB
+
+ADDED
+    - Microphone calibration in Settings: a live approximate dB readout with
+      ±1 dB nudges and a Reset. Intended for a clinician with a real sound
+      level meter, not for the patient.
+    - Placement guidance in the manual: about an arm's length. This became
+      load-bearing the moment an absolute level was introduced.
+
+HONEST LIMITATION, RECORDED DELIBERATELY
+    A phone or tablet microphone has no absolute reference, its gain varies
+    by model, and its reading falls off with distance. The dB numbers are
+    approximations, not measurements, and will not match a real meter. This
+    is stated in the app's manual as well as here. It must never be presented
+    as measurement.
+
+TESTS
+    One existing test — "the absolute scale is irrelevant" — asserted exactly
+    the assumption this release overturns. Rewritten rather than deleted, so
+    the change of mind stays legible:
+
+        the relative half alone ignores absolute scale   (kept, narrowed)
+        a whisper in a silent room does not light the dot (new)
+        in a noisy room the room sets the bar             (new)
+        the bar is whichever threshold is higher          (new)
+
+DOCUMENTATION FIX
+    Part 4 of the manual opened with "the last two you should leave alone",
+    which by position pointed at Open at login and the car setting — telling
+    the reader to ignore the driving-safety control. Now names Microphone
+    calibration explicitly. Counting by position was the mistake; sections
+    move, names don't.
+
+
+=============================================================================
+0.3 — SPANISH, AND A LANGUAGE SETTING
+=============================================================================
+
+ADDED
+    - Full Latin American Spanish translation of both apps, usted throughout
+      on the grounds that these are mostly older adults being addressed by a
+      health tool.
+    - A Language setting: Automatic / English / Español.
+
+TWO DECISIONS WORTH KEEPING
+    One build, not two. The tablet follows the device language by default, so
+    there is nothing to choose and no second download.
+
+    "English" and "Español" are never translated — each appears in its own
+    language always. Someone hunting for Spanish on an English-configured
+    tablet has to recognise "Español" on sight, whatever the app is currently
+    showing. Only "Automatic" translates.
+
+    The setting exists because a device set up in English by a family member
+    must not decide what language the person using it reads.
+
+TRANSLATION CHOICES FLAGGED FOR PROOFREADING
+    - "Small pill" → "barra pequeña", deliberately NOT "píldora". Pill-as-
+      shape does not survive translation for an app aimed at people taking
+      daily medication.
+    - "Heard" → "Se oye". It is the reward state and should read as "you're
+      coming through", not as a technical report.
+    - "I'm driving" → "Voy conduciendo", with "manejando" flagged as possibly
+      more natural across much of Latin America. Safety-critical, so left
+      for a native speaker to settle.
+
+    A proofreading sheet accompanies this, written for a fluent speaker with
+    no technical knowledge. All strings still awaiting review.
+
+NOT TRANSLATED
+    The user guide, feedback survey, install notes and website copy. A few
+    thousand words; worth doing only if Spanish-speaking testers materialise.
+
+ALSO
+    - Under the hood: every hardcoded string moved into resource files on
+      Android and a lookup table on desktop. Nothing user-visible, but it is
+      what made translation possible at all.
+    - The pill's text-fit test measured the English word. Fixed to measure
+      the actual word, or "Más fuerte" would silently vanish.
+
+
+=============================================================================
+0.2 — DESKTOP AND TABLET BROUGHT INTO LINE
+=============================================================================
+
+The Windows app was rewritten so both platforms are genuinely the same app:
+same measurement, same five sensitivity steps, same colours, same two shapes,
+same wording. Previously they had drifted.
+
+ADDED (DESKTOP)
+    - The glowing dot, replacing the earlier ring.
+    - Small pill and full screen, matching the tablet.
+    - Pause and gear icons, matching the tablet.
+    - Open at login.
+
+The measurement model is now a deliberate line-for-line port between Kotlin
+and Python, so the two cannot quietly diverge again.
+
+
+=============================================================================
+0.1 — ANDROID
+=============================================================================
+
+The version that first worked in someone's hand.
+
+ADDED
+    - Glowing dot, full screen, with a screensaver mode so a docked tablet
+      becomes a permanent desk light with nothing to launch.
+    - Floating pill that sits over other apps, draggable and remembered.
+    - Five sensitivity steps, four colours.
+    - Pause, and an ✕ on the pill that genuinely exits and releases the
+      microphone.
+    - Car mode: not in a car / passenger / driving.
+
+CHANGED ALONG THE WAY
+    - Ring → glowing dot. The ring's motion was not smooth enough to read at
+      a glance, which is the entire job.
+    - Pause/unpause text → pause and play icons.
+    - A confirmation screen after choosing the floating pill was removed. It
+      explained something the user could already see.
+    - "Small pill" now defaults straight to the floating pill; previously you
+      could end up with both on screen at once.
+
+FIXED
+    - The dot stuck on "Heard" and ignored the voice.
+    - "Tap anywhere for settings" sat behind the Louder prompt.
+    - The tray icon vanished when the window was closed (desktop).
+
+THE CAR DECISION
+    Originally logged as "works unchanged — a cradle is a dock." That was
+    wrong, and reversing it was the most important call in the project.
+
+    A dot pulsing in time with speech, mounted in a driver's eyeline, is
+    unsafe and illegal in many jurisdictions. Split into passenger (dot stays
+    on, nobody is steering) and driving (screen dark, short vibration only).
+
+    A device cannot tell the two apart, so it asks, and the answer resets on
+    every launch — a stale "passenger" must never survive into the next
+    journey. Detecting the car automatically, via Bluetooth or activity
+    recognition, remains the right answer and is not built.
+
+
+=============================================================================
+EARLIER — THINGS TRIED AND ABANDONED
+=============================================================================
+
+A TABLETOP PUCK
+    The original concept. A plug-in device on a desk. Worked as an idea, but
+    tied to one room and required building hardware.
+
+A WINDOWS-ONLY DESKTOP APP
+    Real, used, and the version that proved the idea. Still supported, but
+    a computer is not where most conversations happen.
+
+AN APPLE VERSION
+    Attempted, abandoned. A volunteer with a Mac hit permission problems and
+    there was no step-by-step guide for macOS. Revisit only if someone with
+    a Mac and patience volunteers.
+
+THE SCREENSAVER-ONLY APPROACH
+    Briefly the recommended way to run it, until the obvious objection: it
+    requires the device to be plugged in, so it does not travel. Kept as an
+    option for a docked tablet, dropped as the primary route.
+
+WHAT WAS DELIBERATELY REMOVED
+    A daily percentage — "you were audible 64% of today". Cut. It reset
+    whenever the service restarted, so it could not answer the only question
+    worth asking ("how did the week go?"), and a score risks turning a
+    reminder into a judgement. If it returns, it needs to survive restarts
+    and be genuinely encouraging.
+
+
+=============================================================================
+KNOWN GAPS
+=============================================================================
+
+    - Driving mode is manual. Nothing detects a car. The user must select it
+      each launch, and the manual says so plainly. This should be automatic.
+    - No progress history of any kind. Deliberate for now, but it means the
+      app cannot answer whether it helped over weeks.
+    - Android and Windows only. No iOS, iPadOS or macOS.
+    - Not in the Play Store, so installing means clicking past three Android
+      warnings. Documented, but it loses people.
+    - The dB calibration is a guess per device, correctable only by hand
+      against a separate meter app.
+    - Spanish is unreviewed by a native speaker.
+    - Never tested in a genuinely noisy room. The adaptive half of the model
+      is the app's central claim and it has not been properly challenged.
+
+
+=============================================================================
+STANDING PRINCIPLES
+=============================================================================
+
+Recorded because each was arrived at by getting it wrong first.
+
+    Nothing is recorded, ever. Audio becomes one loudness number and is
+    discarded. There is no recording to leak because none is made.
+
+    The dot is for the corner of the eye. Anything that makes someone look
+    directly at it — text, numbers, animation for its own sake — is a
+    regression.
+
+    Subtract before adding. No scores, no streaks, no notifications about
+    the voice. The tool most likely to still be in use next month is the one
+    that asks for the least.
+
+    Do not overclaim. "Prototype", "free" and "not a medical device" stay on
+    every page. Overselling a homemade tool to people managing a
+    degenerative illness would be a genuine wrong, not merely bad marketing.
+
+    The person is not a patient. They are someone who wants to be heard at
+    dinner.

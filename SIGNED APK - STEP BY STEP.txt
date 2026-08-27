@@ -1,0 +1,179 @@
+MAKING A SIGNED APK FOR TESTERS
+================================
+
+You do this twice: once to create a signing key, then once per build.
+
+Signing is not about security theatre. Android will only let a person update
+an app if the new version is signed with the SAME key as the old one. Lose the
+key and your testers have to uninstall and lose their settings. So step 1
+matters more than it looks.
+
+
+=============================================================================
+STEP 1 — CREATE YOUR SIGNING KEY (once, ever)
+=============================================================================
+
+In Android Studio:
+
+  Build  >  Generate Signed App Bundle / APK...
+
+1. Choose **APK**. Not "Android App Bundle" — that format only works through
+   the Google Play Store and your testers cannot install it directly.
+
+2. Click **Create new...** next to Key store path.
+
+3. Fill in:
+
+   Key store path .... Click the folder icon. Save it in your "android"
+                       folder as:  pdvoicebuddy-release.jks
+   Password .......... Make one up. Write it down somewhere real.
+   Confirm ........... Same.
+
+   Under Key:
+   Alias ............. pdvoicebuddy
+   Password .......... Use the SAME password as above. Fewer things to lose.
+   Confirm ........... Same.
+   Validity (years) .. 30
+   First and Last Name  Your name
+   Organization ...... Anything, or leave blank
+
+4. OK, then **Next**.
+
+5. Build Variants: choose **release**. Click **Create**.
+
+Three to five minutes. When it finishes, a notification appears with a
+"locate" link.
+
+Your APK is at:
+
+  android\app\release\PDVoiceBuddy-0.1-release.apk
+
+
+BACK UP THE KEY NOW
+-------------------
+
+Copy these two things somewhere safe and separate — not just the project
+folder:
+
+  pdvoicebuddy-release.jks     the key itself
+  the password                  written down
+
+If you lose either one you can never update this app for anyone who has it.
+That is not fixable; it is how Android works.
+
+
+=============================================================================
+STEP 2 — MAKE FUTURE BUILDS ONE CLICK
+=============================================================================
+
+Optional, but it turns the wizard above into a single menu item.
+
+1. In the "android" folder, copy  keystore.properties.example
+   to a new file named  keystore.properties
+
+2. Open it and fill in your real password in both places:
+
+     storeFile=pdvoicebuddy-release.jks
+     storePassword=your-actual-password
+     keyAlias=pdvoicebuddy
+     keyPassword=your-actual-password
+
+3. Save. Sync Project with Gradle Files.
+
+From now on:
+
+  Build  >  Build Bundle(s) / APK(s)  >  Build APK(s)
+
+produces a signed release APK with no dialogs.
+
+Never put keystore.properties or the .jks file in a shared folder, a Google
+Drive you link to people, or anywhere public. Anyone holding both can sign
+software that Android believes came from you.
+
+
+=============================================================================
+STEP 3 — SEND IT TO TESTERS
+=============================================================================
+
+Rename the file so people can tell versions apart, e.g.
+
+  PDVoiceBuddy-0.1.apk
+
+Then put it somewhere they can download from. Any of these work:
+
+  * Google Drive or Dropbox — share the file, set "anyone with the link"
+  * Email — often blocked, so zip it first
+  * A WhatsApp or Signal message — usually fine
+
+Send the How To Use guide with it. They will need it.
+
+WHEN YOU RELEASE AN UPDATE
+--------------------------
+
+Open  android/app/build.gradle.kts  and raise BOTH lines:
+
+  versionCode = 1        ->  2
+  versionName = "0.1"    ->  "0.2"
+
+versionCode must go up every time or Android refuses to install over the old
+version. Rebuild, resend. Testers install straight over the top and keep their
+settings.
+
+
+=============================================================================
+WHAT TO TELL YOUR TESTERS
+=============================================================================
+
+Copy the text below into your message to them.
+
+-----------------------------------------------------------------------------
+
+Installing PDVoice Buddy
+
+This app isn't in the Play Store, so Android will warn you a couple of times.
+That's normal for test software, not a sign anything is wrong.
+
+1. Download the file PDVoiceBuddy-0.1.apk
+2. Open it — tap the download notification, or find it in your Files app
+3. Android will say installing from this source isn't allowed. Tap Settings
+   (or "Allow from this source") and turn the switch on, then go back
+4. Tap Install
+5. If a "Scan app?" box appears, either choice is fine
+6. Open it and allow the microphone
+
+Then read the How To Use guide — especially the bit about the first few
+seconds, and setting how loud you need to be.
+
+If anything goes wrong, tell me exactly what the screen said. That's the most
+useful thing you can send me.
+
+-----------------------------------------------------------------------------
+
+
+=============================================================================
+THINGS WORTH KNOWING BEFORE YOU SEND IT WIDELY
+=============================================================================
+
+Google Play Protect may warn about it. Unavoidable for an app that isn't in
+the Play Store, and it does not mean anything is wrong with the app. Testers
+can tap through. Warn them in advance so it doesn't alarm them.
+
+Every tester will need to allow "install unknown apps" once. On some phones
+this permission is per-app — they grant it to whichever app they downloaded
+with, usually Chrome or Files.
+
+The floating pill needs a permission Android will not grant in a dialog. Point
+testers at the Small pill setting and tell them it will send them to a system
+screen. Better still: tell them to try Full screen first, since it needs
+nothing extra.
+
+Driving mode is manual. Nothing detects a car. Say so explicitly in your
+message, or tell them not to use it while driving. A moving light in a
+driver's line of sight is dangerous and illegal in many places.
+
+Different microphones, different results. Tablets, cheap phones and flagships
+all hear differently. The room-relative measurement should absorb most of
+that, but if one tester reports it behaving oddly, ask what device they have
+before assuming the app is at fault.
+
+Not a medical device. Include that line in whatever you send.

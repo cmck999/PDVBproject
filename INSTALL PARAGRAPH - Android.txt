@@ -1,0 +1,113 @@
+PDVOICE BUDDY — INSTALLING ON ANDROID
+User-facing paragraph. Copy this wherever you're handing out the app.
+
+IMPORTANT FOR WHOEVER PUBLISHES THIS: Android blocks a hand-installed app in
+THREE separate places, and each one uses alarming language. All three have to
+be named in advance or people will stop, assume the app is dangerous, and
+delete it. Do not trim these warnings out to make the copy shorter.
+
+
+MAIN VERSION — for a download page or an email
+==============================================
+
+PDVoice Buddy isn't in the Play Store yet, so installing it takes a few extra
+taps — and Android will try to stop you three times along the way. None of the
+warnings mean anything is wrong; they appear for every app that doesn't come
+from the store. First, when you download the file, your browser may say the
+file "can't be scanned" or "may be harmful" — choose Download anyway. Second,
+when you open the downloaded file, Android may say your browser isn't allowed
+to install apps; tap Settings on that message, switch on "Allow from this
+source", and press Back. Third, just before it installs, you may see a screen
+about an "unsafe app" or "unknown developer" — tap "Install anyway" or "More
+details" and then Install. After that it installs normally. Open PDVoice
+Buddy, allow the microphone when asked, and you're running.
+
+
+WITH THE FIRST-RUN STEPS INCLUDED
+=================================
+
+PDVoice Buddy isn't in the Play Store yet, so installing it takes a few extra
+taps — and Android will try to stop you three times along the way. None of the
+warnings mean anything is wrong; they appear for every app that doesn't come
+from the store. First, when you download the file, your browser may say the
+file "can't be scanned" or "may be harmful" — choose Download anyway. Second,
+when you open the downloaded file, Android may say your browser isn't allowed
+to install apps; tap Settings on that message, switch on "Allow from this
+source", and press Back. Third, just before it installs, you may see a screen
+about an "unsafe app" or "unknown developer" — tap "Install anyway" or "More
+details" and then Install. Once it's installed, open PDVoice Buddy and allow
+the microphone when asked — without that, the light can't work. A glowing dot
+fills the screen, and after a second or two it's listening. Just talk and
+watch the dot: bright means your voice is carrying, dim means speak up.
+
+
+STEP-BY-STEP VERSION — if your testers would rather have a list
+===============================================================
+
+1. Tap the download link. If your browser warns that the file can't be
+   scanned or may be harmful, choose "Download anyway".
+
+2. Open the downloaded file — tap it in the notification, or find it in your
+   Files app under Downloads.
+
+3. If Android says your browser isn't allowed to install apps, tap
+   "Settings" on that message, switch on "Allow from this source", then
+   press Back.
+
+4. If you see a warning about an unsafe app or an unknown developer, tap
+   "More details" or "Install anyway", then Install.
+   (On some tablets this is worded as "Play Protect doesn't recognise this
+   developer". Same thing.)
+
+5. Tap Open, and allow the microphone when asked.
+
+You'll see a glowing dot. That's it — just talk.
+
+
+VERY SHORT — one or two lines
+=============================
+
+PDVoice Buddy isn't in the Play Store yet, so Android will warn you two or
+three times while installing — about scanning the file, about allowing your
+browser to install apps, and about an unknown developer. All of that is normal
+for an app installed by hand; choose the "anyway" option each time. Allow the
+microphone when it asks, and you're running.
+
+
+IF SOMEONE GETS STUCK
+=====================
+
+"There's no Download anyway option"
+    Pull down the notification shade and tap the download notification, or
+    open Files > Downloads and tap the file there.
+
+"It says the app wasn't installed"
+    Usually an older copy is already on the device. Uninstall PDVoice Buddy
+    first, then install again.
+
+"It says the file is corrupt or can't be opened"
+    The download didn't finish. Delete it from Downloads and try again on
+    Wi-Fi.
+
+"I can't find Allow from this source"
+    Settings > Apps > Special app access > Install unknown apps > pick the
+    browser you downloaded with > switch it on.
+
+"Play Protect won't let me"
+    Tap "More details" first — the Install anyway option is hidden until you
+    do. If it's genuinely absent, Play Store > tap your profile picture >
+    Play Protect > gear icon > turn off scanning, install, then turn it back
+    on.
+
+
+A NOTE ON TONE
+==============
+
+Say plainly that the warnings are expected, and say it BEFORE describing the
+steps. Someone managing a health condition, being told by their own tablet
+that an app may be harmful, will very reasonably stop — and they should, unless
+someone they trust has told them in advance exactly which warnings to expect.
+
+Don't dismiss the warnings as pointless. They exist for good reasons. The
+honest framing is: Android can't vouch for an app that didn't come from the
+store, so it warns you — you're relying on trusting whoever gave it to you.

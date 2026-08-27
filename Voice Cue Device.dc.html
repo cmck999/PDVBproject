@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,400;6..72,500&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  body { margin:0; background:oklch(0.962 0.008 85); }
+  a { color:oklch(0.50 0.10 40); text-decoration:none; border-bottom:1px solid oklch(0.50 0.10 40 / 0.35); }
+  a:hover { color:oklch(0.40 0.12 40); border-bottom-color:oklch(0.40 0.12 40); }
+  input[type=range] { accent-color:oklch(0.45 0.10 40); }
+</style>
+</helmet>
+
+<div style="font-family:'IBM Plex Sans',system-ui,sans-serif; color:oklch(0.24 0.012 70); background:oklch(0.962 0.008 85); padding:72px 60px 110px; display:flex; flex-direction:column; gap:0; width:1240px; margin:0 auto; box-sizing:border-box;">
+
+  <header style="display:flex; justify-content:space-between; align-items:flex-end; gap:40px; padding-bottom:30px; border-bottom:1px solid oklch(0.24 0.012 70 / 0.18);">
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:oklch(0.52 0.05 70);">Concept study &nbsp;·&nbsp; hypophonia in Parkinson's</div>
+      <h1 style="font-family:Newsreader,serif; font-weight:400; font-size:60px; line-height:1.0; margin:0; letter-spacing:-0.018em;">A light that stays on<br>while you're being heard.</h1>
+    </div>
+    <p style="max-width:330px; margin:0 0 6px; font-size:15px; line-height:1.62; color:oklch(0.42 0.02 70); text-wrap:pretty;">An ambient loudness cue for Parkinson's speech. It listens to the room — not your mouth — and holds one steady light for as long as your voice is carrying. As a tabletop puck, or as software on a screen you're already looking at.</p>
+  </header>
+
+  <section style="display:grid; grid-template-columns:1.02fr 0.98fr; gap:52px; padding:52px 0; border-bottom:1px solid oklch(0.24 0.012 70 / 0.18);">
+    <div style="display:flex; flex-direction:column; gap:22px;">
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:oklch(0.52 0.05 70);">01 &nbsp;/&nbsp; The cue, live</div>
+      <p style="margin:0; font-size:15px; line-height:1.65; color:oklch(0.40 0.02 70); text-wrap:pretty;">Speak into your microphone, or drag the slider. The ring lights above the threshold and holds through the gaps between words, so ordinary speech rhythm never makes it flicker.</p>
+
+      <div style="display:flex; gap:14px; align-items:center; flex-wrap:wrap;">
+        <button onClick="{{ toggleMic }}" style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.08em; text-transform:uppercase; padding:12px 18px; border-radius:2px; border:1px solid oklch(0.24 0.012 70 / 0.32); background:transparent; color:oklch(0.26 0.012 70); cursor:pointer;" style-hover="background:oklch(0.24 0.012 70); color:oklch(0.96 0.008 85);">{{ micLabel }}</button>
+        <span style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:oklch(0.55 0.04 70);">{{ micNote }}</span>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:11px;">
+        <div style="display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; color:oklch(0.55 0.04 70);">
+          <span>40 dB</span><span>target band 60–70</span><span>90 dB</span>
+        </div>
+        <div style="position:relative; height:54px; background:oklch(0.925 0.01 85); border:1px solid oklch(0.24 0.012 70 / 0.16); border-radius:2px; overflow:hidden;">
+          <div style="position:absolute; top:0; bottom:0; left:{{ bandLeftPct }}%; width:{{ bandWidthPct }}%; background:oklch(0.885 0.055 148);"></div>
+          <div style="position:absolute; top:0; bottom:0; left:0; width:{{ levelPct }}%; background:oklch(0.26 0.012 70 / 0.74);"></div>
+        </div>
+        <input type="range" min="30" max="95" step="0.5" value="{{ sliderValue }}" onInput="{{ onSlider }}" onChange="{{ onSlider }}" style="width:100%;">
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:0; border-top:1px solid oklch(0.24 0.012 70 / 0.16); margin-top:6px;">
+        <sc-for list="{{ rules }}" as="rule" hint-placeholder-count="3">
+          <div style="display:flex; gap:16px; padding:12px 0; border-bottom:1px solid oklch(0.24 0.012 70 / 0.1);">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:oklch(0.58 0.09 40); padding-top:2px; min-width:52px;">{{ rule.tag }}</span>
+            <span style="font-size:13.5px; line-height:1.55; color:oklch(0.38 0.02 70);">{{ rule.body }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:18px;">
+      <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:30px; background:oklch(0.195 0.012 70); border-radius:3px; padding:52px 32px; flex:1;">
+        <div style="width:210px; height:210px; border-radius:999px; background:oklch(0.255 0.008 70); display:flex; align-items:center; justify-content:center; box-shadow:inset 0 1px 0 oklch(1 0 0 / .06);">
+          <div style="width:150px; height:150px; border-radius:999px; border:14px solid; transition:border-color .15s linear, box-shadow .15s linear; border-color:{{ lampColor }}; box-shadow:{{ lampGlow }};"></div>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:36px; letter-spacing:-0.01em; color:oklch(0.93 0.01 85);">{{ dbText }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:{{ statusColor }};">{{ statusText }}</div>
+        </div>
+      </div>
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; line-height:1.7; color:oklch(0.52 0.04 70);">The whole interface is the ring. No numbers, no graph, no sound — nothing that asks to be read mid-conversation.</div>
+    </div>
+  </section>
+
+  <section style="padding:52px 0; border-bottom:1px solid oklch(0.24 0.012 70 / 0.18); display:flex; flex-direction:column; gap:32px;">
+    <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:oklch(0.52 0.05 70);">02 &nbsp;/&nbsp; How it works</div>
+    <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:1px; background:oklch(0.24 0.012 70 / 0.16);">
+      <sc-for list="{{ steps }}" as="step" hint-placeholder-count="4">
+        <div style="background:oklch(0.962 0.008 85); padding:28px 24px; display:flex; flex-direction:column; gap:12px;">
+          <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:oklch(0.58 0.09 40);">{{ step.n }}</div>
+          <div style="font-family:Newsreader,serif; font-size:22px; line-height:1.18;">{{ step.title }}</div>
+          <p style="margin:0; font-size:13.5px; line-height:1.6; color:oklch(0.44 0.02 70); text-wrap:pretty;">{{ step.body }}</p>
+        </div>
+      </sc-for>
+    </div>
+    <p style="margin:0; max-width:760px; font-size:14px; line-height:1.65; color:oklch(0.42 0.02 70); text-wrap:pretty;">Steps 01–03 are identical no matter where the light lives. Only step 04 changes — which is why this can ship as software first and hardware later.</p>
+  </section>
+
+  <section style="padding:52px 0; border-bottom:1px solid oklch(0.24 0.012 70 / 0.18); display:flex; flex-direction:column; gap:36px;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:40px;">
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:oklch(0.52 0.05 70);">03 &nbsp;/&nbsp; Two bodies, one cue</div>
+        <div style="font-family:Newsreader,serif; font-size:34px; line-height:1.1;">Build the software version first.</div>
+      </div>
+      <p style="max-width:420px; margin:0; font-size:14px; line-height:1.62; color:oklch(0.42 0.02 70); text-wrap:pretty;">A desktop app costs nothing to make, needs no soldering, and lets you test whether the cue actually changes how someone speaks. If it works, the puck becomes worth building — because it works away from the desk.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:start;">
+      <div style="display:flex; flex-direction:column; gap:18px;">
+        <div style="background:oklch(0.20 0.012 70); border-radius:6px; padding:0; overflow:hidden; box-shadow:0 16px 34px oklch(0.24 0.012 70 / 0.16);">
+          <div style="display:flex; justify-content:space-between; align-items:center; height:26px; padding:0 12px; background:oklch(0.26 0.008 70); font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:oklch(0.72 0.02 70);">
+            <div style="display:flex; gap:16px;"><span>File</span><span>Edit</span><span>View</span></div>
+            <div style="display:flex; gap:12px; align-items:center;">
+              <div style="display:flex; align-items:center; gap:6px;">
+                <div style="width:9px; height:9px; border-radius:99px; transition:background .15s linear, box-shadow .15s linear; background:{{ lampColor }}; box-shadow:{{ dotGlow }};"></div>
+                <span>Voice</span>
+              </div>
+              <span>100%</span><span>9:41</span>
+            </div>
+          </div>
+          <div style="height:250px; padding:26px; display:flex; align-items:flex-end; justify-content:flex-end; background-image:repeating-linear-gradient(135deg, oklch(0.24 0.012 70) 0 8px, oklch(0.265 0.012 70) 8px 16px);">
+            <div style="display:flex; align-items:center; gap:13px; padding:12px 18px; border-radius:99px; background:oklch(0.16 0.01 70 / 0.92); border:1px solid oklch(1 0 0 / 0.09);">
+              <div style="width:26px; height:26px; border-radius:99px; border:6px solid; transition:border-color .15s linear, box-shadow .15s linear; border-color:{{ lampColor }}; box-shadow:{{ dotGlow }};"></div>
+              <div style="display:flex; flex-direction:column; gap:2px;">
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:{{ statusColor }};">{{ statusText }}</span>
+                <span style="font-family:'IBM Plex Mono',monospace; font-size:10px; color:oklch(0.62 0.02 70);">68% of today projected</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="font-size:14px; font-weight:600;">Desktop app — menu-bar dot plus an always-on-top pill</div>
+          <p style="margin:0; font-size:13px; line-height:1.6; color:oklch(0.44 0.02 70); text-wrap:pretty;">The pill floats over everything, corner-parked and draggable; the menu-bar dot is the minimal mode for people who find the pill distracting. Best for video calls and desk work — exactly where hypophonia gets called out most, because the other person can't lip-read or lean in.</p>
+        </div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:18px;">
+        <div style="background:oklch(0.195 0.012 70); border-radius:6px; height:276px; display:flex; align-items:center; justify-content:center; box-shadow:0 16px 34px oklch(0.24 0.012 70 / 0.16);">
+          <div style="width:168px; height:168px; border-radius:999px; background:oklch(0.255 0.008 70); display:flex; align-items:center; justify-content:center;">
+            <div style="width:116px; height:116px; border-radius:999px; border:11px solid; transition:border-color .15s linear, box-shadow .15s linear; border-color:{{ lampColor }}; box-shadow:{{ lampGlow }};"></div>
+          </div>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="font-size:14px; font-weight:600;">Tabletop puck — for the kitchen table</div>
+          <p style="margin:0; font-size:13px; line-height:1.6; color:oklch(0.44 0.02 70); text-wrap:pretty;">Meals and visits are where projection matters most, and no screen belongs there. The puck is also the only version that works for someone who doesn't use a computer — and the only one both people at the table can see.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:1px; background:oklch(0.24 0.012 70 / 0.16); margin-top:8px;">
+      <sc-for list="{{ compare }}" as="row" hint-placeholder-count="7">
+        <div style="background:oklch(0.962 0.008 85); padding:13px 18px; font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.06em; text-transform:uppercase; color:oklch(0.52 0.05 70);">{{ row.axis }}</div>
+        <div style="background:oklch(0.962 0.008 85); padding:13px 18px; font-size:13px; color:oklch(0.34 0.02 70);">{{ row.app }}</div>
+        <div style="background:oklch(0.962 0.008 85); padding:13px 18px; font-size:13px; color:oklch(0.34 0.02 70);">{{ row.puck }}</div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="padding:52px 0; border-bottom:1px solid oklch(0.24 0.012 70 / 0.18); display:grid; grid-template-columns:0.92fr 1.08fr; gap:52px; align-items:start;">
+    <div style="display:flex; flex-direction:column; gap:20px;">
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:oklch(0.52 0.05 70);">04 &nbsp;/&nbsp; The object</div>
+      <div style="font-family:Newsreader,serif; font-size:30px; line-height:1.15;">A weighted puck, roughly a coffee-cup footprint.</div>
+      <p style="margin:0; font-size:14.5px; line-height:1.65; color:oklch(0.40 0.02 70); text-wrap:pretty;">Set it on the table, aimed at nobody. One knob for sensitivity, one USB-C port, and a matte diffuser ring that reads clearly from across the table without being a lamp.</p>
+      <div style="display:flex; flex-direction:column; gap:0; border-top:1px solid oklch(0.24 0.012 70 / 0.16);">
+        <sc-for list="{{ physical }}" as="p" hint-placeholder-count="5">
+          <div style="display:flex; justify-content:space-between; gap:20px; padding:11px 0; border-bottom:1px solid oklch(0.24 0.012 70 / 0.1);">
+            <span style="font-size:13.5px;">{{ p.item }}</span>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:oklch(0.50 0.04 70); text-align:right;">{{ p.spec }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px;">
+      <sc-for list="{{ shots }}" as="shot" hint-placeholder-count="4">
+        <div style="display:flex; flex-direction:column; gap:9px;">
+          <div style="aspect-ratio:4/3; border:1px solid oklch(0.24 0.012 70 / 0.2); background-image:repeating-linear-gradient(135deg, oklch(0.905 0.01 85) 0 6px, oklch(0.938 0.008 85) 6px 12px); display:flex; align-items:flex-end; padding:12px;">
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.04em; color:oklch(0.44 0.03 70); background:oklch(0.962 0.008 85); padding:4px 7px;">{{ shot.slot }}</span>
+          </div>
+          <p style="margin:0; font-size:12.5px; line-height:1.55; color:oklch(0.46 0.02 70); text-wrap:pretty;">{{ shot.note }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="padding:52px 0; border-bottom:1px solid oklch(0.24 0.012 70 / 0.18); display:grid; grid-template-columns:1fr 1fr; gap:56px;">
+    <div style="display:flex; flex-direction:column; gap:20px;">
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:oklch(0.52 0.05 70);">05 &nbsp;/&nbsp; Build it for about $37</div>
+      <p style="margin:0; font-size:14.5px; line-height:1.65; color:oklch(0.40 0.02 70); text-wrap:pretty;">Nothing here is exotic. A weekend of soldering and a printed enclosure gets a working unit; the firmware is a rolling RMS average and a comparator with hysteresis.</p>
+      <div style="display:flex; flex-direction:column; gap:0; border-top:1px solid oklch(0.24 0.012 70 / 0.16);">
+        <sc-for list="{{ bom }}" as="part" hint-placeholder-count="6">
+          <div style="display:flex; justify-content:space-between; gap:20px; padding:11px 0; border-bottom:1px solid oklch(0.24 0.012 70 / 0.1);">
+            <span style="font-size:13.5px;">{{ part.item }}</span>
+            <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:oklch(0.50 0.04 70); white-space:nowrap;">{{ part.spec }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:20px;">
+      <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:oklch(0.52 0.05 70);">06 &nbsp;/&nbsp; What will actually bite you</div>
+      <sc-for list="{{ risks }}" as="risk" hint-placeholder-count="4">
+        <div style="display:flex; flex-direction:column; gap:6px; padding:17px 19px; background:oklch(0.935 0.012 85); border-left:2px solid oklch(0.58 0.09 40);">
+          <div style="font-size:14px; font-weight:600;">{{ risk.title }}</div>
+          <p style="margin:0; font-size:13px; line-height:1.6; color:oklch(0.42 0.02 70); text-wrap:pretty;">{{ risk.body }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="padding:52px 0 0; display:flex; flex-direction:column; gap:34px;">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; gap:40px;">
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:oklch(0.52 0.05 70);">07 &nbsp;/&nbsp; The review app</div>
+        <div style="font-family:Newsreader,serif; font-size:30px; line-height:1.15;">The cue works alone. Review is for Sundays.</div>
+      </div>
+      <p style="max-width:400px; margin:0; font-size:14px; line-height:1.62; color:oklch(0.42 0.02 70); text-wrap:pretty;">Both versions log locally and need no pairing to function. Open the app when you want to see whether projection is holding up week over week, or to print a summary for the next speech session.</p>
+    </div>
+
+    <div style="display:flex; gap:28px; flex-wrap:wrap;">
+
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <div style="width:340px; height:700px; background:oklch(0.15 0.01 70); border-radius:34px; padding:11px; box-shadow:0 18px 40px oklch(0.24 0.012 70 / 0.16);">
+          <div style="width:100%; height:100%; background:oklch(0.975 0.006 85); border-radius:25px; overflow:hidden; display:flex; flex-direction:column;">
+            <div style="display:flex; justify-content:space-between; padding:16px 22px 0; font-family:'IBM Plex Mono',monospace; font-size:11px; color:oklch(0.50 0.03 70);">
+              <span>9:41</span><span>Synced</span>
+            </div>
+            <div style="padding:22px 22px 0; display:flex; flex-direction:column; gap:5px;">
+              <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:oklch(0.56 0.04 70);">Today</div>
+              <div style="font-family:Newsreader,serif; font-size:29px; line-height:1.1;">You held your voice for 68% of the day.</div>
+            </div>
+            <div style="flex:1; padding:22px; overflow:hidden; display:flex; flex-direction:column; gap:18px;">
+              <div style="display:flex; flex-direction:column; gap:6px; padding:20px 20px 22px; background:oklch(0.94 0.012 85);">
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:44px; letter-spacing:-0.02em; color:oklch(0.26 0.012 70);">68%</div>
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:oklch(0.48 0.03 70);">of speech time projected</div>
+                <div style="margin-top:12px; height:6px; background:oklch(0.88 0.01 85); border-radius:99px; overflow:hidden;">
+                  <div style="width:68%; height:100%; background:oklch(0.72 0.11 148);"></div>
+                </div>
+              </div>
+              <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:oklch(0.56 0.04 70);">Conversations</div>
+              <div style="display:flex; flex-direction:column;">
+                <sc-for list="{{ conversations }}" as="row" hint-placeholder-count="4">
+                  <div style="display:flex; flex-direction:column; gap:7px; padding:13px 0; border-top:1px solid oklch(0.24 0.012 70 / 0.12);">
+                    <div style="display:flex; justify-content:space-between; align-items:baseline; gap:10px;">
+                      <span style="font-size:13.5px;">{{ row.label }}</span>
+                      <span style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:oklch(0.52 0.04 70);">{{ row.meta }}</span>
+                    </div>
+                    <div style="height:4px; background:oklch(0.90 0.01 85); border-radius:99px; overflow:hidden;">
+                      <div style="width:{{ row.pct }}%; height:100%; background:{{ row.color }};"></div>
+                    </div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; color:oklch(0.50 0.04 70); max-width:340px; line-height:1.6;">Home — one number, then the day broken into conversations.</div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <div style="width:340px; height:700px; background:oklch(0.15 0.01 70); border-radius:34px; padding:11px; box-shadow:0 18px 40px oklch(0.24 0.012 70 / 0.16);">
+          <div style="width:100%; height:100%; background:oklch(0.975 0.006 85); border-radius:25px; overflow:hidden; display:flex; flex-direction:column;">
+            <div style="display:flex; justify-content:space-between; padding:16px 22px 0; font-family:'IBM Plex Mono',monospace; font-size:11px; color:oklch(0.50 0.03 70);">
+              <span>9:41</span><span>Last 7 days</span>
+            </div>
+            <div style="padding:22px 22px 0; display:flex; flex-direction:column; gap:5px;">
+              <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:oklch(0.56 0.04 70);">Trend</div>
+              <div style="font-family:Newsreader,serif; font-size:29px; line-height:1.1;">Steadier than last week.</div>
+            </div>
+            <div style="flex:1; padding:22px; overflow:hidden; display:flex; flex-direction:column; gap:22px;">
+              <div style="display:flex; align-items:flex-end; gap:10px; height:206px; padding-top:8px; border-bottom:1px solid oklch(0.24 0.012 70 / 0.2);">
+                <sc-for list="{{ week }}" as="day" hint-placeholder-count="7">
+                  <div style="flex:1; display:flex; flex-direction:column; align-items:center; gap:8px; height:100%; justify-content:flex-end;">
+                    <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:oklch(0.50 0.04 70);">{{ day.value }}</span>
+                    <div style="width:100%; height:{{ day.height }}%; background:{{ day.color }};"></div>
+                    <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:oklch(0.56 0.04 70);">{{ day.label }}</span>
+                  </div>
+                </sc-for>
+              </div>
+              <p style="margin:0; font-size:13.5px; line-height:1.6; color:oklch(0.40 0.02 70); text-wrap:pretty;">Projection holds best before 2pm. Afternoons drop about 11 points — worth mentioning at the next speech session.</p>
+              <div style="display:flex; flex-direction:column; gap:8px; padding:16px 18px; border:1px solid oklch(0.24 0.012 70 / 0.2);">
+                <div style="font-size:13.5px; font-weight:600;">Export for therapy</div>
+                <div style="font-family:'IBM Plex Mono',monospace; font-size:11.5px; line-height:1.6; color:oklch(0.50 0.04 70);">Six weeks of daily summaries as a one-page PDF.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; color:oklch(0.50 0.04 70); max-width:340px; line-height:1.6;">Trend — the view an SLP actually wants, and the export that gets printed.</div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <div style="width:340px; height:700px; background:oklch(0.15 0.01 70); border-radius:34px; padding:11px; box-shadow:0 18px 40px oklch(0.24 0.012 70 / 0.16);">
+          <div style="width:100%; height:100%; background:oklch(0.975 0.006 85); border-radius:25px; overflow:hidden; display:flex; flex-direction:column;">
+            <div style="display:flex; justify-content:space-between; padding:16px 22px 0; font-family:'IBM Plex Mono',monospace; font-size:11px; color:oklch(0.50 0.03 70);">
+              <span>9:41</span><span>Connected</span>
+            </div>
+            <div style="padding:22px 22px 0; display:flex; flex-direction:column; gap:5px;">
+              <div style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:oklch(0.56 0.04 70);">Setup</div>
+              <div style="font-family:Newsreader,serif; font-size:29px; line-height:1.1;">Set once, then leave it alone.</div>
+            </div>
+            <div style="flex:1; padding:22px; overflow:hidden; display:flex; flex-direction:column; gap:20px;">
+              <div style="display:flex; align-items:center; gap:14px; padding:16px 18px; background:oklch(0.94 0.012 85);">
+                <div style="width:34px; height:34px; border-radius:99px; border:7px solid oklch(0.72 0.11 148); flex-shrink:0;"></div>
+                <div style="display:flex; flex-direction:column; gap:3px;">
+                  <div style="font-size:13.5px; font-weight:600;">Puck · kitchen table</div>
+                  <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; color:oklch(0.50 0.04 70);">Synced 2 min ago</div>
+                </div>
+              </div>
+              <div style="display:flex; flex-direction:column;">
+                <sc-for list="{{ settings }}" as="row" hint-placeholder-count="6">
+                  <div style="display:flex; justify-content:space-between; gap:14px; padding:15px 0; border-top:1px solid oklch(0.24 0.012 70 / 0.12);">
+                    <div style="display:flex; flex-direction:column; gap:4px;">
+                      <span style="font-size:13.5px;">{{ row.label }}</span>
+                      <span style="font-family:'IBM Plex Mono',monospace; font-size:10.5px; line-height:1.5; color:oklch(0.55 0.04 70);">{{ row.sub }}</span>
+                    </div>
+                    <span style="font-family:'IBM Plex Mono',monospace; font-size:12px; color:oklch(0.42 0.06 40); white-space:nowrap;">{{ row.value }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:.06em; color:oklch(0.50 0.04 70); max-width:340px; line-height:1.6;">Setup — thresholds live here so the daily view never asks for a decision.</div>
+      </div>
+    </div>
+
+    <p style="margin:24px 0 0; font-size:12.5px; line-height:1.6; color:oklch(0.52 0.03 70); font-style:italic; max-width:640px;">Concept exploration, not a medical device. Any loudness target should come from the patient's speech-language pathologist — 60–70 dB at one metre is a reasonable working band, but the right number depends on the person and the room.</p>
+  </section>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;lowThreshold&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:60,&quot;tsType&quot;:&quot;number&quot;,&quot;min&quot;:45,&quot;max&quot;:80,&quot;unit&quot;:&quot;dB&quot;,&quot;section&quot;:&quot;Cue&quot;},&quot;highThreshold&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:70,&quot;tsType&quot;:&quot;number&quot;,&quot;min&quot;:55,&quot;max&quot;:90,&quot;unit&quot;:&quot;dB&quot;,&quot;section&quot;:&quot;Cue&quot;},&quot;holdMs&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:700,&quot;tsType&quot;:&quot;number&quot;,&quot;min&quot;:0,&quot;max&quot;:2000,&quot;step&quot;:50,&quot;unit&quot;:&quot;ms&quot;,&quot;section&quot;:&quot;Cue&quot;},&quot;litColor&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#74d49c&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#74d49c&quot;,&quot;#f0c04a&quot;,&quot;#8ab6f0&quot;,&quot;#e8e4da&quot;],&quot;section&quot;:&quot;Cue&quot;},&quot;calibrationOffset&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:94,&quot;tsType&quot;:&quot;number&quot;,&quot;min&quot;:70,&quot;max&quot;:110,&quot;unit&quot;:&quot;dB&quot;,&quot;section&quot;:&quot;Mic&quot;}}">
+class Component extends DCLogic {
+  state = { db: 52, lit: false, mic: 'off', slider: 52 };
+
+  get lo() { return this.props.lowThreshold ?? 60; }
+  get hi() { return this.props.highThreshold ?? 70; }
+  get hold() { return this.props.holdMs ?? 700; }
+  get litColor() { return this.props.litColor ?? '#74d49c'; }
+
+  componentDidMount() { this._lastAbove = -1e9; }
+  componentWillUnmount() { this.stopMic(); }
+
+  evaluate(db) {
+    const now = performance.now();
+    if (db >= this.lo) this._lastAbove = now;
+    this.setState({ db, lit: now - (this._lastAbove ?? -1e9) < this.hold });
+  }
+
+  onSlider = (e) => {
+    const v = parseFloat(e.target.value);
+    this.setState({ slider: v });
+    if (this.state.mic !== 'on') this.evaluate(v);
+  };
+
+  toggleMic = async () => {
+    if (this.state.mic === 'on') { this.stopMic(); return; }
+    this.setState({ mic: 'starting' });
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false }
+      });
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const an = ctx.createAnalyser();
+      an.fftSize = 2048;
+      ctx.createMediaStreamSource(stream).connect(an);
+      this._audio = { stream, ctx, an, buf: new Float32Array(an.fftSize) };
+      this.setState({ mic: 'on' });
+      const loop = () => {
+        const a = this._audio;
+        if (!a) return;
+        a.an.getFloatTimeDomainData(a.buf);
+        let sum = 0;
+        for (let i = 0; i < a.buf.length; i++) sum += a.buf[i] * a.buf[i];
+        const dbfs = 20 * Math.log10(Math.max(Math.sqrt(sum / a.buf.length), 1e-7));
+        this.evaluate(Math.max(30, Math.min(95, dbfs + (this.props.calibrationOffset ?? 94))));
+        this._raf = requestAnimationFrame(loop);
+      };
+      loop();
+    } catch (e) {
+      this.setState({ mic: 'denied' });
+    }
+  };
+
+  stopMic() {
+    if (this._raf) cancelAnimationFrame(this._raf);
+    this._raf = null;
+    if (this._audio) {
+      this._audio.stream.getTracks().forEach(t => t.stop());
+      this._audio.ctx.close();
+      this._audio = null;
+    }
+    this.setState({ mic: 'off', lit: false });
+  }
+
+  renderVals() {
+    const { db, lit, mic, slider } = this.state;
+    const pct = v => Math.max(0, Math.min(100, ((v - 40) / 50) * 100));
+    const c = this.litColor;
+
+    return {
+      dbText: db.toFixed(0) + ' dB',
+      levelPct: pct(db),
+      bandLeftPct: pct(this.lo),
+      bandWidthPct: pct(this.hi) - pct(this.lo),
+      sliderValue: slider,
+      onSlider: this.onSlider,
+      toggleMic: this.toggleMic,
+      micLabel: mic === 'on' ? 'Stop microphone' : mic === 'starting' ? 'Requesting…' : 'Use microphone',
+      micNote: mic === 'on' ? 'live — relative level, not calibrated SPL'
+        : mic === 'denied' ? 'permission denied — use the slider instead'
+        : 'or just drag the slider',
+      lampColor: lit ? c : 'oklch(0.30 0.008 70)',
+      lampGlow: lit ? '0 0 42px ' + c + ', 0 0 90px ' + c + '55' : 'none',
+      dotGlow: lit ? '0 0 12px ' + c : 'none',
+      statusText: lit ? 'Carrying' : 'Too quiet',
+      statusColor: lit ? c : 'oklch(0.58 0.04 70)',
+
+      rules: [
+        { tag: 'On', body: 'Sustained level at or above ' + this.lo + ' dB, A-weighted over a 300 ms window.' },
+        { tag: 'Hold', body: 'Stays lit ' + (this.hold / 1000).toFixed(1) + ' s after the last qualifying sample, so pauses between words don\'t break it.' },
+        { tag: 'Off', body: 'Fades rather than snaps, so it reads as a gentle reminder instead of an alarm.' }
+      ],
+
+      steps: [
+        { n: '01', title: 'Listen to the room', body: 'A microphone at a fixed distance samples continuously — no headset, nothing worn on the body.' },
+        { n: '02', title: 'Measure, not transcribe', body: 'A rolling A-weighted RMS is all that\'s computed. Audio is never stored or sent; only a loudness number survives each window.' },
+        { n: '03', title: 'Separate voice from noise', body: 'A slow noise-floor estimate tracks the room, so a running dishwasher raises the bar instead of falsely lighting the cue.' },
+        { n: '04', title: 'Show one thing', body: 'A comparator with hysteresis and a hold timer drives a single light — an LED ring, or a dot on screen.' }
+      ],
+
+      compare: [
+        { axis: 'Cost to try', app: 'Free — an afternoon of code', puck: '~$37 in parts, plus a printer' },
+        { axis: 'Where it works', app: 'At the desk, on video calls', puck: 'Any table — meals, visits, cards' },
+        { axis: 'Who can see it', app: 'Only the person at the screen', puck: 'Both people at the table' },
+        { axis: 'Needs a computer', app: 'Yes, and it must be awake', puck: 'No — plug it in and forget it' },
+        { axis: 'Mic quality', app: 'Whatever the laptop has; AGC fights you', puck: 'Chosen, fixed, and calibratable' },
+        { axis: 'Calibration', app: 'Drifts with laptop position', puck: 'Stable once set on the table' },
+        { axis: 'Ships when', app: 'This month', puck: 'After the cue is proven to help' }
+      ],
+
+      physical: [
+        { item: 'Footprint', spec: '78 mm ⌀ × 34 mm' },
+        { item: 'Indicator', spec: 'diffused LED ring, ~6 mm wide' },
+        { item: 'Controls', spec: 'one detented knob' },
+        { item: 'Power', spec: 'USB-C, always plugged in' },
+        { item: 'Base', spec: 'weighted, silicone foot' }
+      ],
+
+      shots: [
+        { slot: 'render — top view', note: 'The ring seen from a seated position across the table.' },
+        { slot: 'render — 3/4 view', note: 'Enclosure, knob, and diffuser detail.' },
+        { slot: 'photo — in context', note: 'On a kitchen table mid-conversation, lit.' },
+        { slot: 'photo — scale', note: 'Beside a coffee mug for size.' }
+      ],
+
+      bom: [
+        { item: 'ESP32-C3 dev board', spec: '$5' },
+        { item: 'I²S MEMS mic (INMP441)', spec: '$4' },
+        { item: '24-LED addressable ring', spec: '$7' },
+        { item: 'Rotary encoder + knob', spec: '$3' },
+        { item: 'Printed enclosure + diffuser', spec: '$8' },
+        { item: 'USB-C supply, weights, hardware', spec: '$10' }
+      ],
+
+      risks: [
+        { title: 'Distance changes everything', body: 'Loudness falls ~6 dB per doubling of distance. A reading only means something once you fix a nominal seat position and calibrate against a real SPL meter there. This is worse on a laptop, which moves.' },
+        { title: 'The room talks too', body: 'Without a noise-floor estimate, a TV keeps the light on while the patient whispers. This is the single biggest source of false confidence.' },
+        { title: 'Laptops fight you', body: 'Browser and OS mics apply automatic gain control, which flattens exactly the differences you\'re trying to measure. The desktop app has to request a raw stream and verify AGC is actually off.' },
+        { title: 'Nagging fatigue', body: 'A light that\'s dark most of the day teaches people to ignore it. Start the threshold at something achievable and raise it with the SLP over weeks.' }
+      ],
+
+      conversations: [
+        { label: 'Breakfast, 8:10', pct: 82, meta: '82% · 38 min', color: 'oklch(0.72 0.11 148)' },
+        { label: 'Phone call, 11:25', pct: 54, meta: '54% · 12 min', color: 'oklch(0.66 0.11 40)' },
+        { label: 'Lunch with Ruth, 12:40', pct: 71, meta: '71% · 46 min', color: 'oklch(0.72 0.11 148)' },
+        { label: 'Evening, 18:05', pct: 41, meta: '41% · 55 min', color: 'oklch(0.66 0.11 40)' }
+      ],
+
+      week: [
+        { label: 'M', value: 58, height: 72, color: 'oklch(0.83 0.03 85)' },
+        { label: 'T', value: 62, height: 78, color: 'oklch(0.83 0.03 85)' },
+        { label: 'W', value: 55, height: 69, color: 'oklch(0.83 0.03 85)' },
+        { label: 'T', value: 70, height: 88, color: 'oklch(0.72 0.11 148)' },
+        { label: 'F', value: 66, height: 83, color: 'oklch(0.72 0.11 148)' },
+        { label: 'S', value: 74, height: 93, color: 'oklch(0.72 0.11 148)' },
+        { label: 'S', value: 68, height: 85, color: 'oklch(0.72 0.11 148)' }
+      ],
+
+      settings: [
+        { label: 'Threshold', value: this.lo + ' dB', sub: 'Set with your SLP in the clinic' },
+        { label: 'Hold after speech', value: (this.hold / 1000).toFixed(1) + ' s', sub: 'Keeps the light steady between words' },
+        { label: 'Room compensation', value: 'On', sub: 'Raises the bar in noisy rooms' },
+        { label: 'Practice reminder', value: '10:00, 16:00', sub: 'Two nudges a day to read aloud' },
+        { label: 'Show as', value: 'Pill + menu dot', sub: 'Desktop app only' },
+        { label: 'Logging', value: 'On · 41 days', sub: 'Stored on the device, never uploaded' }
+      ]
+    };
+  }
+}
+
+</script>
+</body>
+</html>

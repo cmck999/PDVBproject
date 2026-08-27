@@ -1,0 +1,164 @@
+PDVoice Buddy
+A light that stays on while your voice is carrying
+
+
+WHAT IT DOES
+------------
+
+Parkinson's makes voices quieter without the person noticing. You feel like
+you're speaking normally; the room hears a whisper.
+
+PDVoice Buddy listens to the room and shows you one thing: a glowing dot.
+Bright means your voice is carrying. Dim means it's fading, and it's time to
+push a little.
+
+That's the whole app. No exercises, no scores, nothing to read while you're
+mid-sentence.
+
+It works out how loud the room is and asks you to rise above it. That means it
+adjusts itself — a quiet kitchen and a busy café both work, without you
+changing anything.
+
+
+STARTING IT
+-----------
+
+Tap the PDVoice Buddy icon — two people at a table.
+
+The first time, it asks to use the microphone. Say yes.
+
+Nothing is ever recorded. It measures how loud the room is, a dozen times a
+second, keeps that one number, and throws the sound away. There is no
+recording to find, because none is ever made.
+
+
+THE FIRST FEW SECONDS
+---------------------
+
+When it starts, it says "Listening to the room" for a second or two. That's
+it learning what your room sounds like with nobody talking.
+
+If you move to a different room, or the room gets much noisier, close it and
+open it again so it can relearn.
+
+
+USING IT
+--------
+
+Just talk. Watch the dot out of the corner of your eye.
+
+  Bright and glowing ......... They can hear you. Keep going.
+  Dim and small .............. You're fading. Speak up.
+  Growing and shrinking ...... It follows every word, so you can see
+                               yourself getting louder before you reach
+                               the target.
+
+Don't stare at it. The dot is meant for the corner of your eye, while your
+attention stays on the person you're talking to.
+
+
+THE BUTTONS
+-----------
+
+  Pause (two bars) ..... Stops it listening. Press it for private calls, or
+                         when you're watching television. Press again — it
+                         becomes a triangle — to start listening again.
+
+  Gear ................. Settings.
+
+  You can also tap anywhere on the screen to open settings.
+
+
+SETTINGS
+--------
+
+Four things, and you'll probably only ever change the first.
+
+HOW LOUD YOU NEED TO BE
+    Five choices, from Gentle to Strong.
+
+    Pick one you can already manage. If the dot is dark most of the time,
+    the setting is too high — go down a step. You want a dot that's lit more
+    often than not.
+
+    If you're working with a speech therapist, ask them where to set it, and
+    raise it a step every week or two rather than all at once.
+
+COLOUR
+    Mint, amber, sky or white. Whichever you notice most easily.
+
+SIZE
+    Full screen — a large dot in the middle. Easiest to see across a room.
+
+    Small pill — a narrow bar that floats on top of whatever else you're
+    doing, so you can use the tablet normally. Drag it wherever you like; it
+    remembers. It has its own pause, gear and ✕ buttons, and the ✕ closes
+    the app.
+
+    The first time you choose Small pill, Android will send you to a settings
+    screen to allow it. Allow it, then come back — the pill will be running.
+
+IN THE CAR
+    A tablet cannot tell whether you're driving or in the passenger seat, so
+    it has to ask.
+
+    Not in a car ...... normal.
+    I'm a passenger ... the dot stays on. Nobody is steering.
+    I'm driving ....... the screen goes dark and you get a short buzz when
+                        your voice drops. Nothing to look at.
+
+    IMPORTANT: this resets every time you open the app. If you're going to
+    drive, set it to "I'm driving" each time. A moving light in a driver's
+    line of sight is dangerous and against the law in many places.
+
+
+LEAVING IT RUNNING
+------------------
+
+While it's listening there's a notice in the top bar of the tablet. That's
+Android's rule, not a choice — any app using the microphone has to show one.
+You can tap it to come back to PDVoice Buddy.
+
+To stop it completely: the ✕ on the pill, or just close the app.
+
+
+IF SOMETHING'S WRONG
+--------------------
+
+The dot never lights up, even when I speak up
+    The setting is probably too high. Open settings and go down a step or
+    two — try Easy or Gentle.
+
+The dot is always lit, even when I whisper
+    Something in the room is noisy — a television, a fan, a dishwasher. Turn
+    it off, then close and reopen the app so it relearns the room.
+
+It says "Listening to the room" and stays that way
+    Give it two seconds. If it doesn't change, close and reopen it.
+
+The dot doesn't react at all
+    Check the microphone is allowed: tablet Settings > Apps > PDVoice Buddy >
+    Permissions > Microphone.
+
+I chose Small pill and nothing happened
+    Android needs permission for a floating pill. Tap Small pill again and
+    it'll take you to the right screen.
+
+I can't find the pill
+    It may have been dragged off the edge. Open the app from its icon and
+    switch to Full screen, then back to Small pill.
+
+
+ONE HONEST NOTE
+---------------
+
+This is a homemade tool, not a medical device.
+
+It's good at telling louder from quieter in one place. It is not a
+measurement, and it should not be used to make any decision about treatment.
+
+Use it as a reminder. Set the level with your speech-language pathologist
+rather than guessing, especially if you're already doing speech therapy.
+
+If the dot helps you stay audible, that's the whole point. If it turns into
+one more thing nagging at you, close it and say so — it can be changed.

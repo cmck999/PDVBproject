@@ -1,0 +1,34 @@
+# Build outputs
+dist/
+build/
+*.spec
+*.apk
+*.aab
+*.exe.old
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Android / Gradle
+.gradle/
+android/local.properties
+android/app/build/
+android/build/
+android/.idea/
+android/captures/
+*.iml
+
+# Signing — NEVER commit these. A leaked keystore cannot be undone.
+*.jks
+*.keystore
+keystore.properties
+
+# Editors and OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini

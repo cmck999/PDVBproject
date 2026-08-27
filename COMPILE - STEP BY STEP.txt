@@ -1,0 +1,229 @@
+HOW TO COMPILE PDVOICE BUDDY INTO A REAL APP
+=============================================
+
+Follow these in order. Don't skip any. Every line that starts with a > is
+something you type and then press Enter.
+
+
+=============================================================================
+MAC
+=============================================================================
+
+STEP 1 — Open Terminal
+----------------------
+Press Command + Space. Type: terminal
+Press Enter. A window with white or black text appears. That's Terminal.
+
+
+STEP 2 — Go to the app's folder
+-------------------------------
+In Terminal, type this exactly, INCLUDING the space after cd:
+
+  > cd 
+
+...then DON'T press Enter yet. Instead, open Finder, find the "python"
+folder you downloaded, and DRAG it onto the Terminal window. The path
+appears automatically. NOW press Enter.
+
+Check it worked:
+
+  > ls
+
+You should see a list including pdvoice_buddy.py
+If you don't, you're in the wrong folder. Repeat this step.
+
+
+STEP 3 — Turn on the environment
+--------------------------------
+  > source .venv/bin/activate
+
+Your prompt now starts with (.venv) — that's how you know it worked.
+
+If you get "No such file or directory", you haven't run the installer yet.
+Go double-click "Install PDVoice Buddy.command" first, let it finish, then
+come back to Step 3.
+
+
+STEP 4 — Install the compiler
+-----------------------------
+  > pip install pyinstaller
+
+Takes about 30 seconds. Lots of text scrolls by. That's normal.
+
+
+STEP 5 — Compile
+----------------
+  > pyinstaller --windowed --noconfirm --name "PDVoice Buddy" pdvoice_buddy.py
+
+This takes 1-3 minutes and prints a LOT of text. Ignore all of it.
+When you get your prompt back, look for the words "completed successfully".
+
+You now have a folder called dist, and inside it: PDVoice Buddy.app
+
+
+STEP 6 — Give it microphone permission (REQUIRED)
+------------------------------------------------
+Without this the app will crash instantly. No exceptions.
+
+  > open -a TextEdit "dist/PDVoice Buddy.app/Contents/Info.plist"
+
+TextEdit opens a file full of <key> and <string> lines.
+
+Near the TOP you'll see a line that says exactly:
+
+  <dict>
+
+Click at the END of that line. Press Enter to make a new line.
+Copy the 4 lines below and paste them there:
+
+	<key>NSMicrophoneUsageDescription</key>
+	<string>PDVoice Buddy measures how loudly you are speaking so it can show you a light. Audio is never recorded or sent anywhere.</string>
+	<key>LSUIElement</key>
+	<true/>
+
+Save with Command + S. Close TextEdit.
+
+(If TextEdit says the file is locked, click "Unlock" when asked.)
+
+
+STEP 7 — Sign it
+----------------
+  > codesign --force --deep --sign - "dist/PDVoice Buddy.app"
+
+No output means it worked.
+
+
+STEP 8 — Install it
+-------------------
+  > open dist
+
+A Finder window opens showing PDVoice Buddy.app
+Drag it into your Applications folder.
+
+
+STEP 9 — Run it
+---------------
+Open Applications, double-click PDVoice Buddy.
+
+FIRST TIME: you'll see "cannot be opened because it is from an
+unidentified developer." This is expected — you signed it yourself.
+   Right-click the app -> choose Open -> click Open in the dialog.
+   You only ever do this once.
+
+Then macOS asks for microphone access. Click OK.
+
+The flag appears in the bottom-right of your screen.
+
+There is no Dock icon — that's deliberate. It lives in the menu bar at the
+top right of your screen. Click that little circle for Pause, Show/Hide,
+Open at login, and Quit.
+
+
+=============================================================================
+WINDOWS
+=============================================================================
+
+STEP 1 — Open the folder
+------------------------
+Open File Explorer and find the "python" folder you downloaded.
+
+
+STEP 2 — Open a command window there
+------------------------------------
+Click once in the empty white space inside that folder.
+Hold Shift, then right-click.
+Choose "Open PowerShell window here" (or "Open Terminal here").
+
+A dark window opens.
+
+
+STEP 3 — Turn on the environment
+--------------------------------
+  > .venv\Scripts\activate
+
+Your prompt now starts with (.venv).
+
+If you get an error about scripts being disabled, type this first, answer Y,
+then try again:
+
+  > Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+
+If you get "cannot find the path", you haven't run the installer yet.
+Double-click "Install PDVoice Buddy.bat" first, let it finish, come back.
+
+
+STEP 4 — Install the compiler
+-----------------------------
+  > pip install pyinstaller
+
+
+STEP 5 — Compile
+----------------
+  > pyinstaller --noconsole --noconfirm --name "PDVoice Buddy" pdvoice_buddy.py
+
+1-3 minutes. Lots of text. Wait for your prompt to come back.
+
+
+STEP 6 — Run it
+---------------
+  > start dist
+
+A window opens. Go into the "PDVoice Buddy" folder.
+Double-click PDVoice Buddy.exe
+
+FIRST TIME: Windows may show a blue "Windows protected your PC" box.
+   Click "More info" -> then "Run anyway".
+   This happens because the app isn't signed by a paid certificate.
+
+Windows may ask for microphone access. Click Yes.
+
+The flag appears in the bottom-right of your screen.
+
+
+To make it easy to open later: right-click PDVoice Buddy.exe ->
+"Show more options" -> "Send to" -> "Desktop (create shortcut)".
+
+
+=============================================================================
+FIRST THING TO DO AFTER IT OPENS
+=============================================================================
+
+1. Sit where the person will actually sit.
+2. On the flag, click the "SETTINGS +" row.
+3. Click "Measure the room".
+4. Stay completely quiet for five seconds.
+
+It now knows what your room sounds like with nobody talking, and has set a
+target above that.
+
+Then just talk. Ring green = carrying. Ring dim = louder.
+
+
+=============================================================================
+IF SOMETHING GOES WRONG
+=============================================================================
+
+"command not found: pyinstaller"
+   Step 3 didn't work. Your prompt must show (.venv) before Step 4.
+
+The app opens and instantly vanishes (Mac)
+   Step 6 was missed or the pasted text is wrong. Redo Step 6, then Step 7.
+
+The app opens but the ring never lights
+   Microphone permission was denied.
+   Mac: System Settings -> Privacy & Security -> Microphone -> turn on
+        PDVoice Buddy.
+   Windows: Settings -> Privacy -> Microphone -> allow desktop apps.
+
+No flag anywhere on screen
+   It may be off-screen. Click the menu-bar / tray icon and choose
+   "Move to bottom right".
+
+Numbers look wrong
+   They're approximate until calibrated against a real sound meter.
+   See BUILD.md, section "Before anyone actually uses this".
+   The light still works correctly as a relative cue in the meantime.
+
+
+Not a medical device. Set the target level with a speech-language
+pathologist, not by guessing.

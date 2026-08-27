@@ -1,0 +1,348 @@
+PDVOICE BUDDY
+A light that stays on while your voice is carrying
+
+For tablets and phones (Android) and for computers (Windows and Mac).
+
+
+=============================================================================
+WHAT IT DOES
+=============================================================================
+
+Parkinson's makes voices quieter without the person noticing. You feel like
+you're speaking normally; the room hears a whisper.
+
+PDVoice Buddy listens to the room and shows you one thing: a glowing dot.
+Bright means your voice is carrying. Dim means it's fading, and it's time to
+push a little.
+
+That's the whole app. No exercises, no scores, nothing to read while you're
+mid-sentence.
+
+It works out how loud the room is and asks you to rise above it — and it also
+asks you to reach a normal conversational level, 60–70 dB. You have to clear
+both. That means a busy café asks more of you than a quiet kitchen, but a
+silent room still won't accept a whisper.
+
+Nothing is ever recorded. It measures how loud the room is, about twenty times
+a second, keeps that one number, and throws the sound away. There is no
+recording to find, because none is ever made.
+
+The tablet version and the computer version are the same app, with the same
+measurement and the same settings.
+
+It works in English and Spanish. Normally it just matches your device, so
+there is nothing to do — but if your device is set to English and you'd
+rather read Spanish, you can change it in settings. See Part 4.
+
+
+=============================================================================
+PART 1 — GETTING IT ONTO A TABLET OR PHONE (ANDROID)
+=============================================================================
+
+PDVoice Buddy isn't in the Play Store yet, so Android will try to stop you
+three times while installing. None of the warnings mean anything is wrong —
+they appear for every app that doesn't come from the store.
+
+  1. Tap the download link. If your browser says the file can't be scanned
+     or may be harmful, choose "Download anyway".
+
+  2. Open the downloaded file — tap it in the notification, or find it in
+     Files > Downloads.
+
+  3. If Android says your browser isn't allowed to install apps, tap
+     "Settings" on that message, switch on "Allow from this source", then
+     press Back.
+
+  4. If you see a warning about an unsafe app or an unknown developer, tap
+     "More details" or "Install anyway", then Install.
+
+  5. Tap Open, and allow the microphone when asked.
+
+If you get stuck:
+
+  No "Download anyway" option
+      Pull down the notification shade and tap the download, or open
+      Files > Downloads and tap the file there.
+
+  "App wasn't installed"
+      An older copy is already there. Uninstall PDVoice Buddy, then retry.
+
+  Can't find "Allow from this source"
+      Settings > Apps > Special app access > Install unknown apps > choose
+      your browser > switch it on.
+
+  Play Protect won't let me
+      Tap "More details" first — the Install anyway option is hidden until
+      you do.
+
+
+=============================================================================
+PART 2 — GETTING IT ONTO A COMPUTER (WINDOWS)
+=============================================================================
+
+There's no real installation — it's a single file.
+
+  1. Download PDVoice Buddy.exe and put it somewhere you'll find again.
+     Your Desktop is fine.
+
+  2. Double-click it.
+
+  3. Windows will probably show a blue box saying "Windows protected your
+     PC". This is expected — it only means the app doesn't come from a big
+     software company. Click "More info", then "Run anyway".
+
+  4. Allow the microphone when asked, or the light can't work.
+
+A small pill appears in the corner of your screen. After a second or two it's
+listening.
+
+To make it easier next time: open the gear and turn on "Open at login". Then
+it starts by itself and there's nothing to remember.
+
+
+=============================================================================
+PART 3 — USING IT (BOTH VERSIONS)
+=============================================================================
+
+THE FIRST FEW SECONDS
+
+When it starts it says "Listening to the room" for a second or two. That's it
+learning what your room sounds like with nobody talking.
+
+If you move to a different room, or the room gets much noisier, pause and
+unpause it so it relearns.
+
+
+JUST TALK
+
+Watch the dot out of the corner of your eye.
+
+  Bright and glowing ......... They can hear you. Keep going.
+  Dim and small .............. You're fading. Speak up.
+  Growing and shrinking ...... It follows every word, so you can see
+                               yourself getting louder before you reach
+                               the target.
+
+Don't stare at it. The dot is meant for the corner of your eye, while your
+attention stays on the person you're talking to.
+
+
+THE BUTTONS
+
+  Pause (two bars) ..... Stops it listening. Press it for private calls, or
+                         when you're watching television. Press again — it
+                         becomes a triangle — to start listening again.
+
+  Gear ................. Settings.
+
+  ✕ .................... Tablet: closes the app.
+                         Computer: hides it, still listening. The icon stays
+                         near the clock — click that to bring it back. To
+                         stop it completely, use Quit in settings.
+
+On the full-screen size you can also tap or click anywhere to open settings.
+On a computer, Esc hides it.
+
+
+=============================================================================
+PART 4 — SETTINGS
+=============================================================================
+
+Seven settings, and you'll probably only ever change the first. Microphone
+calibration is the one to leave alone unless a therapist asks you to.
+
+("Where to put the device" below isn't a setting — it's placement advice, and
+it's worth reading.)
+
+
+HOW LOUD YOU NEED TO BE
+
+Five choices, from Gentle to Strong.
+
+Normal conversation sits between 60 and 70 dB, and that's what these are built
+around:
+
+    Gentle    about 57 dB    just below conversational, for starting out
+    Easy      about 60 dB    a relaxed voice
+    Normal    about 63 dB    conversational — where most people should be
+    Firm      about 66 dB    projecting deliberately
+    Strong    about 69 dB    strong projection
+
+The dot needs your voice to clear TWO bars at once: above the room, and above
+the level in that list. In a noisy restaurant the room is what's holding you
+back. In a silent living room the level is — which is the point, because being
+louder than a silent room proves nothing.
+
+Pick one you can already manage. If the dot is dark most of the time, the
+setting is too high — go down a step. You want a dot that's lit more often
+than not.
+
+If you're working with a speech therapist, ask them where to set it, and
+raise it a step every week or two rather than all at once.
+
+
+WHERE TO PUT THE DEVICE
+
+About an arm's length away — roughly three feet, or a metre.
+
+This matters more than it used to. A microphone hears a quieter sound the
+further away it is, so a tablet across the room will think you're too quiet
+when you aren't, and one right under your chin will think you're fine when
+you're not.
+
+On the table in front of you is right. On a shelf across the room is not.
+
+
+COLOUR
+
+Mint, amber, sky or white. Whichever you notice most easily.
+
+
+SIZE
+
+Full screen — a large dot in the middle. Easiest to see across a room. On a
+tablet this can also run as the screensaver, so a docked tablet becomes a
+permanent desk light with nothing to launch.
+
+Small pill — a narrow bar that floats on top of whatever else you're doing,
+so you can use the device normally. Drag it wherever you like; it remembers.
+It has its own pause, gear and ✕ buttons.
+
+On a tablet, the first time you choose Small pill, Android will send you to a
+settings screen to allow it. Allow it, then come back — the pill will be
+running.
+
+
+MICROPHONE CALIBRATION
+
+Leave this alone unless the dot is wrong everywhere you go.
+
+Every device's microphone is a little different, and none of them are real
+sound level meters. This setting is the app's guess at how to turn what the
+microphone hears into a dB number. It shows the current reading and lets you
+nudge it up or down a dB at a time.
+
+It's here for a therapist with a proper sound level meter — or a free meter
+app — who wants the numbers to line up. If the dot behaves sensibly for you,
+there is nothing to do here.
+
+If you change it and regret it, press Reset.
+
+
+LANGUAGE
+
+English or Spanish.
+
+"Automatic" means it follows whatever your phone, tablet or computer is set
+to. That's how it arrives, and for most people it's already correct.
+
+Change it if the device is set to one language but you'd rather read the
+other — which is common when somebody else set the device up for you. The
+choices are shown in their own language, so "Español" reads as Español no
+matter which language the app is currently in.
+
+The change happens immediately. Nothing restarts, and nothing else is
+affected.
+
+
+OPEN AT LOGIN (computer only)
+
+Starts it automatically when you turn the computer on. Recommended.
+
+
+IN THE CAR (tablet and phone only)
+
+A device cannot tell whether you're driving or in the passenger seat, so it
+has to ask.
+
+  Not in a car ...... normal.
+  I'm a passenger ... the dot stays on. Nobody is steering.
+  I'm driving ....... the screen goes dark and you get a short buzz when
+                      your voice drops. Nothing to look at.
+
+IMPORTANT: this resets every time you open the app. If you're going to drive,
+set it to "I'm driving" each time. A moving light in a driver's line of sight
+is dangerous and against the law in many places.
+
+
+=============================================================================
+PART 5 — LEAVING IT RUNNING
+=============================================================================
+
+TABLET OR PHONE
+
+While it's listening there's a notice in the top bar. That's Android's rule,
+not a choice — any app using the microphone has to show one. Tap it to come
+back to PDVoice Buddy.
+
+To stop it completely: the ✕ on the pill, or close the app.
+
+
+COMPUTER
+
+It's meant to be left on. Hiding it with ✕ keeps it listening.
+
+The icon near the clock — on Windows you may need to click the small arrow to
+see hidden icons — shows it's running. Click it to show or hide, right-click
+for Settings and Quit.
+
+
+=============================================================================
+PART 6 — IF SOMETHING'S WRONG
+=============================================================================
+
+The dot never lights up, even when I speak up
+    First check where the device is — an arm's length away, not across the
+    room. Then, if it's still dark, the setting is probably too high. Open
+    settings and go down a step or two.
+
+The dot lights up too easily
+    Check the device isn't right under your chin. If it's placed sensibly and
+    still too easy, go up a step.
+
+The dot is always lit, even when I whisper
+    Something in the room is noisy — a television, a fan, a dishwasher, or
+    the fan inside the computer itself. Turn it off if you can, then pause
+    and unpause so it relearns the room.
+
+It says "Listening to the room" and stays that way
+    Give it two seconds. If it doesn't change, pause and unpause.
+
+It says "No microphone", or the dot doesn't react at all
+    Check the microphone is allowed:
+      Android:  Settings > Apps > PDVoice Buddy > Permissions > Microphone
+      Windows:  Settings > Privacy & security > Microphone > allow
+                desktop apps
+      Mac:      System Settings > Privacy & Security > Microphone
+
+    On a computer, if you have several microphones — a webcam, a headset, a
+    docking station — it may be listening through one facing away from you.
+    Change the default input device in your sound settings.
+
+I chose Small pill on the tablet and nothing happened
+    Android needs permission for a floating pill. Tap Small pill again and
+    it'll take you to the right screen.
+
+I can't find the pill
+    Tablet: open the app from its icon, switch to Full screen, then back to
+    Small pill.
+    Computer: look for the icon near the clock, behind the arrow for hidden
+    icons. Click it.
+
+
+=============================================================================
+ONE HONEST NOTE
+=============================================================================
+
+This is a homemade tool, not a medical device.
+
+It's good at telling louder from quieter in one place, and at nudging you
+toward a conversational level. The dB numbers are approximations from an
+uncalibrated microphone, not measurements — they will not match a real sound
+level meter, and no decision about treatment should rest on them.
+
+Use it as a reminder. Set the level with your speech-language pathologist
+rather than guessing, especially if you're already doing speech therapy.
+
+If the dot helps you stay audible, that's the whole point. If it turns into
+one more thing nagging at you, close it and say so — it can be changed.

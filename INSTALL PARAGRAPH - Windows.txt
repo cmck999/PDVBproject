@@ -1,0 +1,52 @@
+PDVOICE BUDDY — INSTALLING ON WINDOWS
+User-facing paragraph. Copy this wherever you're handing out the app.
+
+
+SHORT — for a download page or an email
+=======================================
+
+PDVoice Buddy is a single file, so there's no real installation. Download
+PDVoice Buddy.exe, put it somewhere you'll find it again — your Desktop is
+fine — and double-click it. The first time, Windows will probably show a blue
+box saying "Windows protected your PC"; that's expected, and it only means the
+app doesn't come from a big software company. Click "More info", then "Run
+anyway", and it will start. Windows may then ask whether the app can use your
+microphone: say yes, or the light won't work. A small pill appears in the
+corner of your screen, and after a second or two it's listening. Nothing else
+to set up.
+
+
+WITH THE NEXT STEP INCLUDED
+===========================
+
+PDVoice Buddy is a single file, so there's no real installation. Download
+PDVoice Buddy.exe, put it somewhere you'll find it again — your Desktop is
+fine — and double-click it. The first time, Windows will probably show a blue
+box saying "Windows protected your PC"; that's expected, and it only means the
+app doesn't come from a big software company. Click "More info", then "Run
+anyway", and it will start. Windows may then ask whether the app can use your
+microphone: say yes, or the light won't work. A small pill appears in the
+corner of your screen, and after a second or two it's listening — just talk,
+and watch the dot. Once it's running, click the gear and turn on "Open at
+login", so it starts by itself from then on and there's nothing to remember.
+
+
+VERY SHORT — one or two lines
+=============================
+
+Download PDVoice Buddy.exe and double-click it. If Windows shows a blue
+"Windows protected your PC" box, click "More info" then "Run anyway" — that's
+normal for a small app like this. Allow the microphone when asked, and you're
+running.
+
+
+A NOTE FOR WHOEVER PUBLISHES THIS
+=================================
+
+Keep the blue-warning sentence, and keep it early. It is the single most
+common reason someone deletes an unsigned app and assumes it's broken or
+unsafe. Naming it before they see it turns alarm into a shrug.
+
+Keeping "say yes, or the light won't work" matters for the same reason: a
+denied microphone leaves the app looking dead, with nothing on screen
+explaining why.
