@@ -2,7 +2,7 @@
   "_comment": "The update manifest. Both apps read this file and nothing else. Edit it in the browser on github.com when you publish a release — see GITHUB - STEP BY STEP.txt. Keep the version numbers here matching the ones in the builds you upload, or nobody will be told about them.",
 
   "android": {
-    "versionCode": 6,
+    "versionCode": "6",
     "versionName": "0.5.2",
     "url": "https://github.com/cmck999/PDVBproject/releases/download/v0.5.2/PDVoiceBuddy-0.5.2-release.apk",
     "minSupportedVersionCode": 0,
