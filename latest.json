@@ -14,12 +14,12 @@
   },
 
   "windows": {
-    "version": "0.4",
-    "url": "https://github.com/cmck999/PDVBproject/releases/download/v0.5/PDVoice.Buddy.exe
+    "version": "0.5.1",
+    "url": "https://github.com/cmck999/PDVBproject/releases/download/v0.5.1/PDVoice.Buddy.exe
 ",
     "sha256": "C:\PDVoice Buddy\python>certutil -hashfile "dist\PDVoice Buddy.exe" SHA256
 SHA256 hash of dist\PDVoice Buddy.exe:
-5b9a83b84d8dd6a20c6e605f64afe2f619192a0bf978afcc867081338948318c
+5cde93c2ab6f7414e95dce332394a47c3fdc95a090d1d6270e93ac9cf6249ac7
 CertUtil: -hashfile command completed successfully.
 ",
     "minSupportedVersion": "0",
