@@ -3,7 +3,7 @@
 
   "android": {
     "versionCode": 6,
-    "versionName": "0.2",
+    "versionName": "0.5.2",
     "url": "https://github.com/cmck999/PDVBproject/releases/download/v0.5.2/PDVoiceBuddy-0.5.2-release.apk",
     "minSupportedVersionCode": 0,
     "notes": [
