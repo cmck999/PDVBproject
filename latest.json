@@ -1,30 +1,27 @@
 {
   "_comment": "The update manifest. Both apps read this file and nothing else. Edit it in the browser on github.com when you publish a release — see GITHUB - STEP BY STEP.txt. Keep the version numbers here matching the ones in the builds you upload, or nobody will be told about them.",
-
   "android": {
     "versionCode": "7",
     "versionName": "0.5.3",
     "url": "https://github.com/cmck999/PDVBproject/releases/download/v0.5.3/PDVoiceBuddy-0.5.3-release.apk",
     "minSupportedVersionCode": 0,
     "notes": [
-      "Added version number to options page"
+      "Added version number to options page",
       "Fixed room calibration interface"
-     
     ]
   },
-
   "windows": {
     "version": "0.5.3",
-    "url": "https://github.com/cmck999/PDVBproject/releases/download/v0.5.3/PDVoice.Buddy.0.5.3.exe
-",
-    "sha256": "C:\PDVoice Buddy\python>certutil -hashfile "dist\PDVoice Buddy.exe" SHA256
-SHA256 hash of dist\PDVoice Buddy.exe:
-30a5d055ff2fd1b4730761138f417b4e2b7247ad1dac5f8fe5a5b129742fa050
-CertUtil: -hashfile command completed successfully.
-",
+    "url": "https://github.com/cmck999/PDVBproject/releases/download/v0.5.3/PDVoice.Buddy.0.5.3.exe",
+    "sha256": "30a5d055ff2fd1b4730761138f417b4e2b7247ad1dac5f8fe5a5b129742fa050",
     "minSupportedVersion": "0",
     "notes": [
-     "Added version number to options page"
+      "Added version number to options page",
+      "Fixed room calibration interface"
+    ]
+  }
+}
+
       "Fixed room calibration interface"
     ]
   }
