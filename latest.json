@@ -19,7 +19,7 @@
 ",
     "sha256": "C:\PDVoice Buddy\python>certutil -hashfile "dist\PDVoice Buddy.exe" SHA256
 SHA256 hash of dist\PDVoice Buddy.exe:
-63d904b42d937eb0d5e9caaa57d861787a4f7ff3fd4484d9ea767c8ed50a7265
+30a5d055ff2fd1b4730761138f417b4e2b7247ad1dac5f8fe5a5b129742fa050
 CertUtil: -hashfile command completed successfully.
 ",
     "minSupportedVersion": "0",
