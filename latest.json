@@ -1,23 +1,26 @@
 {
   "_comment": "The update manifest. Both apps read this file and nothing else. Edit it in the browser on github.com when you publish a release — see GITHUB - STEP BY STEP.txt. Keep the version numbers here matching the ones in the builds you upload, or nobody will be told about them.",
+
   "android": {
-    "versionCode": 7,
-    "versionName": "0.5.3",
-    "url": "https://github.com/cmck999/PDVBproject/releases/download/v0.5.3/PDVoiceBuddy-0.5.3-release.apk",
+    "versionCode": 8,
+    "versionName": "0.5.4",
+    "url": "https://github.com/cmck999/PDVBproject/releases/download/v0.5.4/PDVoiceBuddy-0.5.4-release.apk",
     "minSupportedVersionCode": 0,
     "notes": [
-      "Added version number to options page",
-      "Fixed room calibration interface"
+      "Settings > About now shows the right version number, and the update check stops offering the version you already have",
+      "A faint outline around the floating pill, so it is easier to find on a dark screen"
     ]
   },
+
   "windows": {
-    "version": "0.5.3",
-    "url": "https://github.com/cmck999/PDVBproject/releases/download/v0.5.3/PDVoice.Buddy.0.5.3.exe",
-    "sha256": "30a5d055ff2fd1b4730761138f417b4e2b7247ad1dac5f8fe5a5b129742fa050",
+    "version": "0.5.4",
+    "url": "https://github.com/cmck999/PDVBproject/releases/download/v0.5.4/PDVoice.Buddy.0.5.4.exe",
+    "sha256": "e7ae1996218ee0a82628b58feb16446ccdf25323b51b5eecc7367767a8e32a0c",
     "minSupportedVersion": "0",
     "notes": [
-      "Added version number to options page",
-      "Fixed room calibration interface"
+      "Settings > About now shows the right version number, and the update check stops offering the version you already have",
+      "A faint outline around the floating pill, so it is easier to find on a dark screen",
+      "In Spanish, the Done button and the calibration readout's \"Starting…\" are now translated"
     ]
   }
 }
